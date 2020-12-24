@@ -1,0 +1,83 @@
+
+#menu {width:100px; position: relative; border:10px solid; 
+	position: absolute; height:80px;
+	z-index:100; list-style:none;}
+
+#navi {
+
+	list-style:none;
+	padding:5px 1px;
+	margin:0;
+	width:100px;
+	position: absolute;
+	z-index:100;
+
+}
+
+#navi li{
+	list-style:none;
+	float: left;
+	position: relative;
+	margin: 5px 100px;
+	padding: 0;
+}
+
+#navi li a{
+	list-style:none;
+	display: block;
+	font-family: "나눔고딕";
+	font-weight: normal;
+	font-size: 16px;
+	margin: 0;
+	color: 	#fff;
+	text-decoration: none;
+	text-shadow: 0 1px 1px;
+}
+
+#navi li:hover > a{
+	background:; 
+	color:black;
+	margin: 0;
+	padding: 5px;
+}
+
+#navi ul {
+
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	left: 0;
+	top: 40px;
+	width: 105px;
+	text-align: center;
+	opacity: 0;
+}
+
+#navi ul li{
+	float: none;
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+}
+
+#nav ul a{
+	font-weight: normal;
+	color: white;
+}
+
+#navi ul li:hover a{
+	background: #A9A9A9;
+	font-weight: normal;
+	color:white;
+}
+
+#navi li:hover ul{
+	opacity: 1;
+}
+
+#navi li:hover ul li{
+	height: 35px;
+	overflow: visible;
+	padding: 0;
+}
