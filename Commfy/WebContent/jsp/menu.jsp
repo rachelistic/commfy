@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
-<link href="/Commfy/css/menu.css" rel="stylesheet">
+<!-- <link href="/Commfy/css/menu.css" rel="stylesheet"> -->
 <style>
 body {
 	margin: 0;
@@ -12,33 +12,129 @@ body {
 	background-color: #81b2b7;
 }
 
+
 nav {
-	height: 60px;
-	margin: 10px;
+	height: 100px;
 	position: relative;
-	width: 97%;
-	
-	left: 1%;
+	width: 100%;
+	list-style: none;
+	float: left;
 }
+
+nav>ul>li {
+	list-style: none;
+	font-size: 35px;
+	font-weight:bold;
+	display: inline;
+	width:100px;
+}
+
+a:visited {text-decoration: none;} 
+
+nav>ul>li a {
+text-decoration: none; 
+}
+nav>ul>li a:visited {
+text-decoration: none;color:black;
+}
+nav>ul>li a:hover {
+text-decoration: none;
+}
+nav>ul>li>ul>li {
+width:110px;
+background:dimgrey;
+float:left;
+font-size:15px;
+}
+
+nav ul {margin:10px;padding:0;}
+
+#menu {
+	position:relative;
+	color:lightgrey;
+	float: right;
+	right:20px;
+}
+nav ul li ul {opacity:0;
+list-style:none;
+width:80px;
+
+}
+
+nav li:hover ul{
+	opacity: 1;
+	float:right;
+}
+
+nav li ul a {
+	color:white;
+	padding-left:10px;
+	padding-right:10px;
+	text-decoration: none;
+	
+}
+nav li ul a:visited {
+	color:white;
+	padding-left:10px;
+	padding-right:10px;
+	text-decoration: none;
+	
+}
+
+nav li ul li:hover{
+background:black;
+color:white;
+}
+
+
+/* nav li ul a:hover {
+background:black;
+color:white;
+
+}  */
+
 </style>
 <head>
 <meta charset="UTF-8">
 <title>menu</title>
 </head>
 <body>
+
 	<nav>
-		<a style="float: left;font-size: 3rem;font-weight: 1000;">COMMFY PLANET</a>
-		<div id="menu"  style="float: right;">
-			<ul id="navi">
-				<li><a style="color: white; float: right;font-size: 3rem;
+		<ul>
+			<li><a href="/Commfy/jsp/login/welcome.jsp">COMMFY PLANET</a></li>
+			<li id="menu"><a>MENU</a>
+				<ul>
+					<li><a href="#">내정보</a></li>
+					<li><a>게시판</a></li>
+					<li><a>매칭 보기</a></li>
+					<li><a href="/Commfy/RegiList.do">회원정보관리</a></li>
+					<li><a>MBIT관리</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+
+	<!-- 
+
+	<nav>
+		<ul id="navi">
+		<li><a style="float: left;font-size: 3rem;font-weight: 1000;">COMMFY PLANET</a></li>
+		
+		
+						
+				<li><a style="color: white; float: right; font-size: 3rem;
 								font-weight: 1000;">MENU</a>
 					<ul>
 						<li><a href="/Commfy/RegiList.do">회원정보관리</a></li>
 						<li><a href="#">mbti관리</a></li>
-					</ul></li>
+					</ul>
+				</li>
+			
 			</ul>
-		</div>
-	</nav>
+		
+		
+	</nav> -->
 
 
 

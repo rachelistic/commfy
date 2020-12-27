@@ -24,6 +24,10 @@ public class RegidentDao {
 //				"SELECT * FROM MEMBER WHERE ACOUNT =? AND PASSWORD =?";
 		private final String REGIDENTS = "SELECT * FROM REGIDENT";
 		private final String REGIDENT = "SELECT * FROM MEMBER WHERE ACOUNT = ?";
+		private final String INSERT = "INSERT INTO REGIDENT( "
+				+ "ACCOUNT,NICKNAME,USERTYPE,PASSWORD,AREA,GENDER,BLOODTYPE,BIRTHDATE,REGIDATE,MBTICODE)"
+		 		+ "VALUES(?,?,?,?,?,?,?,?,?,?)";
+
 		
 		public RegidentDao() {
 			try {
@@ -61,18 +65,18 @@ public class RegidentDao {
 					vo.setGender(rs.getString("gender"));
 					vo.setBloodType(rs.getString("bloodtype"));
 					vo.setBirthDate(rs.getDate("birthdate"));
+					vo.setRegiDate(rs.getDate("regidate"));
 					
 					vo.setMind(rs.getInt("mind"));
 					vo.setEnergy(rs.getInt("energy"));
 					vo.setNature(rs.getInt("nature"));
 					vo.setTatics(rs.getInt("tatics"));
-					vo.setIdentity(rs.getInt("identity"));
+					vo.setMBTIcode(rs.getString("mbticode"));
 					
 					vo.setInterests(rs.getString("interests"));
 					vo.setRooms(rs.getString("rooms"));
-					vo.setMBTIcode(rs.getString("mbticode"));
-					vo.setOccupation(rs.getString("occupation"));
 					
+					vo.setOccupation(rs.getString("occupation"));
 					
 					
 					list.add(vo);
@@ -100,16 +104,17 @@ public class RegidentDao {
 		vo.setGender(rs.getString("gender"));
 		vo.setBloodType(rs.getString("bloodtype"));
 		vo.setBirthDate(rs.getDate("birthdate"));
+		vo.setRegiDate(rs.getDate("regidate"));
 		
 		vo.setMind(rs.getInt("mind"));
 		vo.setEnergy(rs.getInt("energy"));
 		vo.setNature(rs.getInt("nature"));
 		vo.setTatics(rs.getInt("tatics"));
-		vo.setIdentity(rs.getInt("identity"));
+		vo.setMBTIcode(rs.getString("mbticode"));
 		
 		vo.setInterests(rs.getString("interests"));
 		vo.setRooms(rs.getString("rooms"));
-		vo.setMBTIcode(rs.getString("mbticode"));
+		
 		vo.setOccupation(rs.getString("occupation"));
 		
 				}
@@ -120,6 +125,39 @@ public class RegidentDao {
 			}
 			return vo;
 		}
+		
+		
+		
+		
+		public int insert(RegidentVo vo) {
+			int n = 0;
+			try { 
+	
+				psmt = conn.prepareStatement(INSERT);
+				psmt.setString(1, vo.getAccount());
+				psmt.setString(2, vo.getNickName());
+				psmt.setString(3, vo.getUserType());
+				psmt.setString(4, vo.getPassword());
+				psmt.setString(5, vo.getArea());
+				psmt.setString(6, vo.getGender());
+				psmt.setString(7, vo.getBloodType());
+				psmt.setDate(8, vo.getBirthDate());
+				psmt.setDate(9, vo.getRegiDate());
+				psmt.setString(10, vo.getMBTIcode());
+				n=psmt.executeUpdate();
+				System.out.println("가입완료");
+			} catch (Exception e) {
+				e.printStackTrace();	
+				System.out.println("가입실패");
+			}finally{
+				close();
+			}
+			return n;
+		}
+		
+		
+		
+		
 		
 //		public MemberVo memberLoginCheck(MemberVo vo) {   //login check
 //			try {

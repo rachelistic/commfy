@@ -1,0 +1,187 @@
+@charset "UTF-8";
+body {
+	background-color: lightgrey;
+}
+
+#regi { 
+	background-color: lightgrey;
+	height: 85vh;
+	padding-top: 50px;
+}
+
+#firstsec {
+	height: 80vh;
+	background-color: lightgrey;
+}
+
+#firstsec input {
+	height: 2rem;
+}
+
+#firstsec select {
+	height: 2rem;
+}
+
+.section {
+	background: white;
+	width: 100%;
+	height: 85vh;
+}
+
+table th {
+	text-align: left;
+}
+
+
+/*  */
+.wrap {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 60%;
+	width: 60%;
+}
+
+.circle-nav {
+	position: relative;
+	width: 15vw;
+	height: 15vw;
+	border: dashed 1px;
+	border-radius: 50%;
+	margin: 0;
+	transform: rotate(calc(-90deg - ( 6 * 10deg)));
+}
+
+.circle-nav a {
+	display: block;
+	overflow: hidden;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 8vw;
+	height: 8vw;
+	margin: calc(( 8vw/ 2)* -1);
+	/* negative half the width of .nav-item*/
+}
+
+.circle-nav a.center {
+	transform: rotate(calc(90deg + ( 6 * 10deg)));
+}
+
+.circle-nav .circle {
+	background: rgba(0, 0, 0, 0.5);
+	width: 100px;
+	height: 100px;
+	line-height: 10vw;
+	text-align: center;
+	border-radius: 50%;
+	display: block;
+}
+
+.circle-nav .nav-item-1 {
+	z-index: 0;
+	transform: rotate(calc(( 360deg/ 6)* 1)) translate(calc(20vw/ 2))
+		rotate(calc(( 360deg/ 6)* 1* -1)) rotate(calc(90deg + ( 6 * 10deg)));
+}
+
+.circle-nav .nav-item-1:before {
+	content: "여행/체험";
+	color: white;
+	font-size: 1rm;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+.circle-nav .nav-item-2 {
+	z-index: 0;
+	transform: rotate(calc(( 360deg/ 6)* 2)) translate(calc(20vw/ 2))
+		rotate(calc(( 360deg/ 6)* 2* -1)) rotate(calc(90deg + ( 6 * 10deg)));
+}
+
+.circle-nav .nav-item-2:before {
+	content: "문학/글쓰기";
+	color: white;
+	font-size: 2rm;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+.circle-nav .nav-item-3 {
+	z-index: 0;
+	transform: rotate(calc(( 360deg/ 6)* 3)) translate(calc(20vw/ 2))
+		rotate(calc(( 360deg/ 6)* 3* -1)) rotate(calc(90deg + ( 6 * 10deg)));
+}
+
+.circle-nav .nav-item-3:before {
+	content: "음악/악기";
+	color: white;
+	font-size: 2rm;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+.circle-nav .nav-item-4 {
+	z-index: 0;
+	transform: rotate(calc(( 360deg/ 6)* 4)) translate(calc(20vw/ 2))
+		rotate(calc(( 360deg/ 6)* 4* -1)) rotate(calc(90deg + ( 6 * 10deg)));
+}
+
+.circle-nav .nav-item-4:before {
+	content: "운동/건강";
+	color: white;
+	font-size: 2rm;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+.circle-nav .nav-item-5 {
+	z-index: 0;
+	transform: rotate(calc(( 360deg/ 6)* 5)) translate(calc(20vw/ 2))
+		rotate(calc(( 360deg/ 6)* 5* -1)) rotate(calc(90deg + ( 6 * 10deg)));
+}
+
+.circle-nav .nav-item-5:before {
+	content: "기술/IT";
+	color: white;
+	font-size: 2rm;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+.circle-nav .nav-item-6 {
+	z-index: 0;
+	transform: rotate(calc(( 360deg/ 6)* 6)) translate(calc(20vw/ 2))
+		rotate(calc(( 360deg/ 6)* 6* -1)) rotate(calc(90deg + ( 6 * 10deg)));
+}
+
+.circle-nav .nav-item-6:before {
+	content: "문화/예술";
+	color: white;
+	font-size: 2rm;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}

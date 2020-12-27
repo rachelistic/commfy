@@ -17,7 +17,10 @@
 </head>
 <body style="background-color:white">
 <div align="center">
-	<div><h1>회 원 목 록</h1></div>
+	<div><h1>회 원 목 록</h1></div>	
+	<div align="right" style="padding-right:5%;">
+	<button id="regiadd" onclick="location.href='/Commfy/jsp/login/register.jsp'">회원추가</button></div>
+	<br>
 	<div>
 		<table border="1">
 			<tr>
@@ -28,7 +31,8 @@
 				<th width="100">성 별</th>
 				<th width="100">혈액형</th>
 				<th width="100">생 일</th>
-				<th width="100">관심사</th>
+				<th width="100">가입일</th>
+				
 				<th width="100">길드</th>
 				<th width="100">MBTI</th>
 				<th width="100">직업</th>
@@ -42,7 +46,8 @@
 					<td align="center">${vo.gender }</td>
 					<td align="center">${vo.bloodType }</td>
 					<td align="center">${vo.birthDate }</td>
-					<td align="center">${vo.interests }</td>
+					<td align="center">${vo.regiDate }</td>
+					
 					<td align="center">${vo.rooms }</td>
 					<td align="center">${vo.MBTIcode }</td>
 					<td align="center">${vo.occupation }</td>
@@ -53,6 +58,8 @@
 			<input type="hidden" id="mid" name="mid">
 		</form>
 	</div>
+
+
 </div>
 </body>
 </html>

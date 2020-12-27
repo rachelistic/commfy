@@ -1,11 +1,16 @@
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	background-color: #81b2b7;
+}
 
-#menu {width:100px; position: relative; border:10px solid; 
+#menu {width:100px; position: relative; border:1px solid; 
 	position: absolute; height:80px;
 	z-index:100; list-style:none;}
 
 #navi {
 
-	list-style:none;
 	padding:5px 1px;
 	margin:0;
 	width:100px;
@@ -25,7 +30,6 @@
 #navi li a{
 	list-style:none;
 	display: block;
-	font-family: "나눔고딕";
 	font-weight: normal;
 	font-size: 16px;
 	margin: 0;
@@ -35,7 +39,7 @@
 }
 
 #navi li:hover > a{
-	background:; 
+	/*background:;   */
 	color:black;
 	margin: 0;
 	padding: 5px;
@@ -58,18 +62,24 @@
 	float: none;
 	margin: 0;
 	padding: 0;
-	font-size: 14px;
+
+	font-size:10px;
 }
 
 #nav ul a{
 	font-weight: normal;
 	color: white;
+	font-size:20px;
+	padding:10px;
+	margin:10px;
 }
 
 #navi ul li:hover a{
 	background: #A9A9A9;
 	font-weight: normal;
 	color:white;
+
+	
 }
 
 #navi li:hover ul{

@@ -11,7 +11,7 @@
 <script type="text/javascript">
 	function SelectFunction(str) {
 		if(str == 'E') 
-			document.frm.action = "/Member/RegiEdit.do";
+			document.frm.action = "/Commfy/RegiEdit.do";
 		else
 			document.frm.action = "/Commfy/RegiList.do";
 		document.frm.submit();

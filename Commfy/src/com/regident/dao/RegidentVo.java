@@ -1,6 +1,5 @@
 package com.regident.dao;
 
-
 import java.sql.Date;
 
 public class RegidentVo {
@@ -12,14 +11,14 @@ public class RegidentVo {
 	private String gender;
 	private String bloodType;
 	private Date birthDate;
+	private Date regiDate;
 	private int mind;
 	private int energy;
 	private int nature;
 	private int tatics;
-	private int identity;
+	private String MBTIcode;
 	private String interests;
 	private String rooms;
-	private String MBTIcode;
 	private String occupation;
 	
 	
@@ -108,6 +107,16 @@ public class RegidentVo {
 	}
 
 
+	public Date getRegiDate() {
+		return regiDate;
+	}
+
+
+	public void setRegiDate(Date regiDate) {
+		this.regiDate = regiDate;
+	}
+
+
 	public int getMind() {
 		return mind;
 	}
@@ -148,13 +157,13 @@ public class RegidentVo {
 	}
 
 
-	public int getIdentity() {
-		return identity;
+	public String getMBTIcode() {
+		return MBTIcode;
 	}
 
 
-	public void setIdentity(int identity) {
-		this.identity = identity;
+	public void setMBTIcode(String mBTIcode) {
+		MBTIcode = mBTIcode;
 	}
 
 
@@ -178,16 +187,6 @@ public class RegidentVo {
 	}
 
 
-	public String getMBTIcode() {
-		return MBTIcode;
-	}
-
-
-	public void setMBTIcode(String mBTIcode) {
-		MBTIcode = mBTIcode;
-	}
-
-
 	public String getOccupation() {
 		return occupation;
 	}
@@ -197,5 +196,7 @@ public class RegidentVo {
 		this.occupation = occupation;
 	}
 
+
+	
 	
 }
