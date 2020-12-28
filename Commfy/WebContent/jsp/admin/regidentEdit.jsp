@@ -20,8 +20,10 @@
 </head>
 <body style="background-color:white">
 <div align="center">
-	<div><h1>회원정보 조회</h1></div>
+	<div><h1>글수정</h1></div>
 	<div>
+	<form id="frm" name="frm" action="/Commfy/RegiInput.do" method="get">
+	
 		<table border="1">
 			<tr>
 				<th width="100">어카운트</th>
@@ -32,7 +34,7 @@
 			</tr>
 			<tr>	
 				<th width="100">권 한</th>
-				<td align="center">${vo.userType }</td>
+				<td align="center"><input type="text" name="nusertype" id="nusertype" value="${vo.userType }"></td>
 				
 				<th width="100">지역</th>
 				<td align="center">${vo.area }</td>
@@ -49,29 +51,29 @@
 			</tr>
 			<tr>
 				<th width="100">관심사</th>
-				<td align="center">${vo.interests }</td>
+				<td align="center"><input type="text" name="ninterest" id="ninterest" value="${vo.interests }"></td>
 			</tr>
 			<tr>	
 				<th width="100">길드</th>
-				<td align="center">${vo.rooms }</td>
+				<td align="center"><input type="text" name="nroom" id="nroom" value="${vo.rooms }"></td>
 			
 				<th width="100">MBTI</th>
-				<td align="center">${vo.MBTIcode }</td>
+				<td align="center"><input type="text" name="nmbti" id="nmbti" value="${vo.MBTIcode }"></td>
 				
 				<th width="100">직업</th>
-				<td align="center">${vo.occupation }</td>
+				<td align="center"><input type="text" name="njob" id="njob" value="${vo.occupation }"></td>
 			</tr>
 		</table>
 		<br/>
+	
+<input type="hidden" id = "account" name="account" value="${vo.account}">
+<input type = "submit" value="수정하기 ">
+<input type = "button" onClick="location.href='/Commfy/RegiRead.do?account=${vo.borderId}'" id="cancel" name="cancel" value="수정취소">
+<input type ="button" onClick="location.href='/Commfy/RegiList.do'" id="list" name="list" value ="목록으로">
+</form>
+	
 	</div>
-	<div>
-		<form id="frm" name="frm" method="post">
-			<input type="hidden" id="mid" name="mid">
-			<button type="button" onclick="SelectFunction('E')">회원정보수정</button>&nbsp;&nbsp;
-			<button type="reset">취 소</button>&nbsp;&nbsp;
-			<button type="button" onclick="SelectFunction('L')">회원목록</button>
-		</form>
-	</div>
+	
 </div>
 </body>
 </html>

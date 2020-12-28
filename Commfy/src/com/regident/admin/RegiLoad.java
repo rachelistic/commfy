@@ -15,14 +15,14 @@ import com.regident.dao.RegidentVo;
 /**
  * Servlet implementation class RegiEdit
  */
-@WebServlet("/RegiEdit.do")
-public class RegiEdit extends HttpServlet {
+@WebServlet("/RegiRoad.do")
+public class RegiLoad extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RegiEdit() {
+    public RegiLoad() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,11 +34,18 @@ public class RegiEdit extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		RegidentDao dao = new RegidentDao();
 		RegidentVo vo = new RegidentVo();
-		vo.setAccount(request.getParameter("mid"));
+				
+		vo.setAccount(request.getParameter("account"));
+		vo.setUserType(request.getParameter("nusertype"));
+		vo.setInterests(request.getParameter("ninterest"));
+		vo.setRooms(request.getParameter("nroom"));
+		vo.setMBTIcode(request.getParameter("nmbti"));
+		vo.setOccupation(request.getParameter("njob"));
+				
 		vo = dao.select(vo);
 		
 		request.setAttribute("vo", vo);
-		String viewPage="jsp/admin/regiEdit.jsp";
+		String viewPage="jsp/admin/residentEdit.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
 		

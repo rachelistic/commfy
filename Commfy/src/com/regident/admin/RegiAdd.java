@@ -37,16 +37,18 @@ public class RegiAdd extends HttpServlet {
 		RegidentDao dao = new RegidentDao();
 		RegidentVo vo = new RegidentVo();
 		
-		vo.setAccount(request.getParameter("uaccount"));
-		vo.setNickName(request.getParameter("unickname"));
+		vo.setAccount(request.getParameter("account"));
+		vo.setNickName(request.getParameter("nickname"));
 		vo.setUserType(request.getParameter("usertype"));
-		vo.setPassword(request.getParameter("upw"));
-		vo.setArea(request.getParameter("uarea"));
-		vo.setGender(request.getParameter("ugender"));
-		vo.setBloodType(request.getParameter("ubloodtype"));
-		vo.setBirthDate(Date.valueOf(request.getParameter("ubdate")));
-		vo.setRegiDate(Date.valueOf(request.getParameter("TODAY")));
-		vo.setMBTIcode(request.getParameter("umbti"));
+		vo.setPassword(request.getParameter("pw"));
+		vo.setArea(request.getParameter("h_area1")); 
+		vo.setGender(request.getParameter("gender"));
+		vo.setBloodType(request.getParameter("bloodtype"));
+		
+		vo.setBirthDate(Date.valueOf(request.getParameter("bdate")));
+		vo.setRegiDate(Date.valueOf(request.getParameter("currentDate")));
+		
+		vo.setMBTIcode(request.getParameter("mbti"));
 	
 		int n = dao.insert(vo);
 		String viewPage;

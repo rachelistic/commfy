@@ -9,7 +9,7 @@
 	<script type="text/javascript">
 	function SearchFunction(str) {
 		document.frm.mid.value = str;
-		document.frm.action = "/Commfy/RegiEdit.do";
+		document.frm.action = "/Commfy/RegiRead.do";
 		document.frm.submit();
 	}
 </script>
@@ -32,13 +32,12 @@
 				<th width="100">혈액형</th>
 				<th width="100">생 일</th>
 				<th width="100">가입일</th>
-				
 				<th width="100">길드</th>
 				<th width="100">MBTI</th>
 				<th width="100">직업</th>
 			</tr>
 			<c:forEach var="vo" items="${regidents }">
-				<tr class="row" onclick="SearchFunction('${vo.account }')"> 
+				<tr class="row" onClick="location.href='/Commfy/RegiRead.do?account=${vo.account }'"> 
 					<td align="center">${vo.account }</td>
 					<td align="center">${vo.nickName }</td>
 				 	<td align="center">${vo.userType }</td>
@@ -47,7 +46,6 @@
 					<td align="center">${vo.bloodType }</td>
 					<td align="center">${vo.birthDate }</td>
 					<td align="center">${vo.regiDate }</td>
-					
 					<td align="center">${vo.rooms }</td>
 					<td align="center">${vo.MBTIcode }</td>
 					<td align="center">${vo.occupation }</td>

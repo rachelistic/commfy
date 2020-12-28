@@ -13,257 +13,20 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
 <meta charset="UTF-8">
+
+
+
+
 <title>회원 등록</title>
-</head>
-<body>
-	<form id="frm" name="frm" action="/Commfy/RegiAdd.do" method="get">
-		<div id="firstsec" align="center">
-			<br><br>
-			<h3>컴피플래닛에 오신것을 환영합니다.</h3>
-			<br>
-			<h1>컴피플래닛 주민 등록</h1>
 
-			<div id="regi">
-				<table>
-					<tr>
-						<th>어카운트</th>
-						<td colspan="2"><input id="uaccount" type="text" value="---@gmail.com"></td>
-						<td><input type="button" value="중복체크"></td>
-					</tr>
-
-					<tr>
-						<th>별명</th>
-						<td colspan="2"><input id="unickname" type="text"></td>
-					</tr>
-					<tr>
-						<th>권한</th>
-						<td colspan="2"><input id="usertype" type="text" value="user"></td>
-					</tr>
-					<tr>
-						<th>비밀번호</th>
-						<td colspan="2"><input id="upw" type="text"></td>
-					</tr>
-					<tr>
-						<th>비밀번호 확인</th>
-						<td colspan="2"><input type="text"></td>
-						<td id="pwconfirm">재확인!</td>
-					</tr>
-					<tr>
-						<th>활동 지역</th>
-						<!-- https://sinna94.tistory.com/entry/%EB%A7%88%EC%9D%B4%EB%B0%94%ED%8B%B0%EC%8A%A4-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B0%80%EC%A0%B8%EC%98%A4%EB%8A%94-%EB%B0%A9%EB%B2%95 -->
-						<td colspan="1">
-						
-						<select id="uarea" name="h_area1" onChange="cat1_change(this.value,h_area2)">
-								<option>-선택-</option>
-								<option value='1'>서울</option>
-								<option value='2'>부산</option>
-								<option value='3' selected>대구</option>
-								<option value='4'>인천</option>
-								<option value='5'>광주</option>
-								<option value='6'>대전</option>
-								<option value='7'>울산</option>
-								<option value='8'>강원</option>
-								<option value='9'>경기</option>
-								<option value='10'>경남</option>
-								<option value='11'>경북</option>
-								<option value='12'>전남</option>
-								<option value='13'>전북</option>
-								<option value='14'>제주</option>
-								<option value='15'>충남</option>
-								<option value='16'>충북</option>
-						</select> 
-						<select name="h_area2">
-								<option>-선택-</option>
-								<option value='58'>남구</option>
-								<option value='59'>달서구</option>
-								<option value='60'>동구</option>
-								<option value='61'>북구</option>
-								<option value='62'>서구</option>
-								<option value='63'>수성구</option>
-								<option value='64'>중구</option>
-								<option value='65'>달성군</option>
-
-						</select></td>
-					</tr>
-					<tr>
-						<th>성별</th>
-						<td colspan=1><input id="ugender" type="radio" name="gender" value="남성">남성 <input
-							type="radio" name="gender" value="여성">여성</td>
-
-						<th colspan=1>혈액형</th>
-						<td colspan=1><select id="ubloodtype">
-								<option>-선택-</option>
-								<option value="A">A</option>
-								<option value="B">B</option>
-								<option value="O">O</option>
-								<option value="AB">AB</option>
-						</select></td>
-					</tr>
-					<tr>
-						<th>생년월일</th>
-						<td><input id="ubdate" type="text"></td>
-					</tr>
-					<tr>
-						<th>가입일(오늘)</th>
-						<td><input type="text" id="TODAY" value=""></td>
-					</tr>
-
-				</table>
-				<br> <br> <br> <a>page 1 / 3</a>
-			</div>
-
-
-		</div>
-
-		<div class="section" align="center">
-			<br><br><br> <a>N E X T</a>
-			<h1>▼</h1>
-			<br>
-			<h1>성향 등록</h1>
-			<table id="mbti" style="text-align: center;" border=1>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-
-
-				</tr>
-				<tr>
-
-					<td colspan=5><input type="radio" name="mbti">내 mbti디폴트로 저장하기</td>
-					<td colspan=5><input id="umbti" type="text"></td>
-
-					<td colspan=2><input type="button" value="등록"></td>
-				<tr>
-				<tr>
-					<td colspan=5><input type="radio" name="mbti">정확한 MBTI
-						검사하기</td>
-					<td colspan=7><a href="#">Go to the Link</a></td>
-				</tr>
-
-				<tr>
-					<td colspan=12>MBTI검사 결과</td>
-				</tr>
-
-				<tr>
-					<td colspan=2>E</td>
-					<td colspan=8>https://codepen.io/mygumi/pen/EQypKX</td>
-					<td colspan=2>I</td>
-				</tr>
-				<tr>
-					<td colspan=1>외향</td>
-					<td colspan=1><input id="ue" type="text" id="e">%</td>
-					<td colspan=8></td>
-					<td colspan=1><input id="ui" type="text" id="i">%</td>
-					<td colspan=1>내향</td>
-				</tr>
-
-				<tr>
-					<td colspan=2>S</td>
-					<td colspan=8>bar</td>
-					<td colspan=2>N</td>
-				</tr>
-				<tr>
-					<td colspan=1>감각</td>
-					<td colspan=1><input id="us" type="text" id="s">%</td>
-					<td colspan=8></td>
-					<td colspan=1><input id="un" type="text" id="n">%</td>
-					<td colspan=1>직관</td>
-				</tr>
-
-				<tr>
-					<td colspan=2>T</td>
-					<td colspan=8>bar</td>
-					<td colspan=2>F</td>
-				</tr>
-				<tr>
-					<td colspan=1>사고</td>
-					<td colspan=1><input id="ut" type="text" id="t">%</td>
-					<td colspan=8></td>
-					<td colspan=1><input id="uf" type="text" id="f">%</td>
-					<td colspan=1>감정</td>
-				</tr>
-
-				<tr>
-					<td colspan=2>J</td>
-					<td colspan=8>bar</td>
-					<td colspan=2>P</td>
-				</tr>
-				<tr>
-					<td colspan=1>판단</td>
-					<td colspan=1><input id="uj" type="text" id="j">%</td>
-					<td colspan=8></td>
-					<td colspan=1><input id="up" type="text" id="p">%</td>
-					<td colspan=1>인식</td>
-				</tr>
-				<tr>
-					<td colspan="12"><h2>당신은 __입니다.</h2></td>
-				</tr>
-
-
-
-			</table>
-			<br> <br> <a>page 2 / 3</a>
-
-		</div>
-
-		<div class="section" align="center">
-			<br>
-			<br><a>N E X T</a>
-			<h1>▼</h1>
-
-			<br><br>
-			<h1>나의 관심사</h1>
-
-
-
-			
-			
-			<div class="wrap">
-				<nav class='circle-nav'>
-					<a class="circle" href='#' class='center'></a> 
-					<a href='#' class='circle nav-item-1'></a> 
-					<a href='#'class='circle nav-item-2'></a>
-					<a href='#'class='circle nav-item-3'></a> 
-					<a href='#' class='circle nav-item-4'></a> 
-					<a href='#' class='circle nav-item-5'></a> 
-					<a href='#' class='circle nav-item-6'></a>
-				</nav>
-			</div>
-
-		<br> <br>정보 입력 완료 ! <input type="button" value="등록하기" onClick="add()">
-
-
-		<br> <br> <a>page 3 / 3</a>
-		<br>
-		<br><br>
-
-
-		</div>
-
-
-
-	</form>
-
-
-	<script type="text/javascript">
+<script type="text/javascript">
 	
 		function add(){
 			document.frm.submit();
 			alert("등록되었습니다.");
 		}
 		
-	
-		window.onload = function() {
+		/* window.onload = function() {
 			var dt = new Date();
 			var Year = dt.getFullYear();
 			var Month = "" + (dt.getMonth() + 1);
@@ -277,7 +40,7 @@
 			var Today = Year.toString() + "-" + Month + "-" + Day;
 
 			document.getElementById("TODAY").value=Today;
-		}
+		} */
 	
 		var cat1_num = new Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
 				15, 16);
@@ -390,5 +153,252 @@
 
 
 
+</head>
+<body>
+	<form id="frm" name="frm" action="/Commfy/RegiAdd.do" method="get">
+		<div id="firstsec" align="center">
+			<br><br>
+			<h3>컴피플래닛에 오신것을 환영합니다.</h3>
+			<br>
+			<h1>컴피플래닛 주민 등록</h1>
+
+			<div id="regi">
+				<table>
+					<tr>
+						<th>어카운트</th>
+						<td colspan="2"><input name="account" type="text" value="---@gmail.com"></td>
+						<td><input type="button" value="중복체크"></td>
+					</tr>
+
+					<tr>
+						<th>별명</th>
+						<td colspan="2"><input name="nickname" type="text"></td>
+					</tr>
+					<tr>
+						<th>권한</th>
+						<td colspan="2"><input name="usertype" type="text" value="user"></td>
+					</tr>
+					<tr>
+						<th>비밀번호</th>
+						<td colspan="2"><input name="pw" type="text"></td>
+					</tr>
+					<tr>
+						<th>비밀번호 확인</th>
+						<td colspan="2"><input type="text"></td>
+						<td id="pwconfirm">재확인!</td>
+					</tr>
+					<tr>
+						<th>활동 지역</th>
+						<!-- https://sinna94.tistory.com/entry/%EB%A7%88%EC%9D%B4%EB%B0%94%ED%8B%B0%EC%8A%A4-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B0%80%EC%A0%B8%EC%98%A4%EB%8A%94-%EB%B0%A9%EB%B2%95 -->
+						<td colspan="1">
+						
+						<select id="uarea" name="h_area1" onChange="cat1_change(this.value,h_area2)">
+								<option>-선택-</option>
+								<option value='1'>서울</option>
+								<option value='2'>부산</option>
+								<option value='3' selected>대구</option>
+								<option value='4'>인천</option>
+								<option value='5'>광주</option>
+								<option value='6'>대전</option>
+								<option value='7'>울산</option>
+								<option value='8'>강원</option>
+								<option value='9'>경기</option>
+								<option value='10'>경남</option>
+								<option value='11'>경북</option>
+								<option value='12'>전남</option>
+								<option value='13'>전북</option>
+								<option value='14'>제주</option>
+								<option value='15'>충남</option>
+								<option value='16'>충북</option>
+						</select> 
+						<select name="h_area2">
+								<option>-선택-</option>
+								<option value='58'>남구</option>
+								<option value='59'>달서구</option>
+								<option value='60'>동구</option>
+								<option value='61'>북구</option>
+								<option value='62'>서구</option>
+								<option value='63'>수성구</option>
+								<option value='64'>중구</option>
+								<option value='65'>달성군</option>
+
+						</select></td>
+					</tr>
+					<tr>
+						<th>성별</th>
+						<td colspan=1><input type="radio" name="gender" value="남성">남성 <input
+							type="radio" name="gender" value="여성">여성</td>
+
+						<th colspan=1>혈액형</th>
+						<td colspan=1><select name="bloodtype">
+								<option>-선택-</option>
+								<option value="A">A</option>
+								<option value="B">B</option>
+								<option value="O">O</option>
+								<option value="AB">AB</option>
+						</select></td>
+					</tr>
+					<tr>
+						<th>생년월일</th>
+						<td><input name="bdate" type="date"></td>
+					</tr>
+					<tr>
+						<th>가입일(오늘)</th>
+						<td><input type="date" id="currentDate" name="currentDate"></td>
+					</tr>
+				</table>
+				<br> <br> <br> <a>page 1 / 3</a>
+			</div>
+
+
+		</div>
+
+		<div class="section" align="center">
+			<br><br><br> <a>N E X T</a>
+			<h1>▼</h1>
+			<br>
+			<h1>성향 등록</h1>
+			<table id="mbti" style="text-align: center;" border=1>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+
+
+				</tr>
+				<tr>
+
+					<td colspan=5><input type="radio" name="mbtis">내 mbti디폴트로 저장하기</td>
+					<td colspan=5><input name="mbti" type="text"></td>
+
+					<td colspan=2><input type="button" value="등록"></td>
+				<tr>
+				<tr>
+					<td colspan=5><input type="radio" name="mbtis">정확한 MBTI
+						검사하기</td>
+					<td colspan=7><a href="#">Go to the Link</a></td>
+				</tr>
+
+				<tr>
+					<td colspan=12>MBTI검사 결과</td>
+				</tr>
+
+				<tr>
+					<td colspan=2>E</td>
+					<td colspan=8>https://codepen.io/mygumi/pen/EQypKX</td>
+					<td colspan=2>I</td>
+				</tr>
+				<tr>
+					<td colspan=1>외향</td>
+					<td colspan=1><input id="ue" type="text" id="e">%</td>
+					<td colspan=8></td>
+					<td colspan=1><input id="ui" type="text" id="i">%</td>
+					<td colspan=1>내향</td>
+				</tr>
+
+				<tr>
+					<td colspan=2>S</td>
+					<td colspan=8>bar</td>
+					<td colspan=2>N</td>
+				</tr>
+				<tr>
+					<td colspan=1>감각</td>
+					<td colspan=1><input id="us" type="text" id="s">%</td>
+					<td colspan=8></td>
+					<td colspan=1><input id="un" type="text" id="n">%</td>
+					<td colspan=1>직관</td>
+				</tr>
+
+				<tr>
+					<td colspan=2>T</td>
+					<td colspan=8>bar</td>
+					<td colspan=2>F</td>
+				</tr>
+				<tr>
+					<td colspan=1>사고</td>
+					<td colspan=1><input id="ut" type="text" id="t">%</td>
+					<td colspan=8></td>
+					<td colspan=1><input id="uf" type="text" id="f">%</td>
+					<td colspan=1>감정</td>
+				</tr>
+
+				<tr>
+					<td colspan=2>J</td>
+					<td colspan=8>bar</td>
+					<td colspan=2>P</td>
+				</tr>
+				<tr>
+					<td colspan=1>판단</td>
+					<td colspan=1><input id="uj" type="text" id="j">%</td>
+					<td colspan=8></td>
+					<td colspan=1><input id="up" type="text" id="p">%</td>
+					<td colspan=1>인식</td>
+				</tr>
+				<tr>
+					<td colspan="12"><h2>당신은 __입니다.</h2></td>
+				</tr>
+
+
+
+			</table>
+			<br> <br> <a>page 2 / 3</a>
+
+		</div>
+
+		<div class="section" align="center">
+			<br>
+			<br><a>N E X T</a>
+			<h1>▼</h1>
+
+			<br><br>
+			<h1>나의 관심사</h1>
+
+
+
+			
+			
+			<div class="wrap">
+				<nav class='circle-nav'>
+					<a class="circle" href='#' class='center'></a> 
+					<a href='#' class='circle nav-item-1'></a> 
+					<a href='#'class='circle nav-item-2'></a>
+					<a href='#'class='circle nav-item-3'></a> 
+					<a href='#' class='circle nav-item-4'></a> 
+					<a href='#' class='circle nav-item-5'></a> 
+					<a href='#' class='circle nav-item-6'></a>
+				</nav>
+			</div>
+
+		<br> <br>정보 입력 완료 ! <input type="button" value="등록하기" onClick="add()">
+
+
+		<br> <br> <a>page 3 / 3</a>
+		<br>
+		<br><br>
+
+
+		</div>
+
+
+
+	</form>
+
+
+	
+
+
 </body>
+<script>
+document.getElementById('currentDate').value = 
+	new Date().toISOString().substring(0, 10);
+</script>
 </html>
