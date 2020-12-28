@@ -42,7 +42,7 @@ text-decoration: none;
 }
 nav>ul>li>ul>li {
 width:110px;
-background:dimgrey;
+background:grey;
 float:left;
 font-size:15px;
 }
@@ -51,10 +51,11 @@ nav ul {margin:10px;padding:0;}
 
 #menu {
 	position:relative;
-	color:lightgrey;
+	color:white;
 	float: right;
 	right:20px;
 }
+
 nav ul li ul {opacity:0;
 list-style:none;
 width:80px;
@@ -82,7 +83,7 @@ nav li ul a:visited {
 }
 
 nav li ul li:hover{
-background:black;
+background:#EDD3BC;
 color:white;
 }
 

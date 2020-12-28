@@ -27,7 +27,7 @@ public class RegidentDao {
 			+ "ACCOUNT,NICKNAME,USERTYPE,PASSWORD,AREA,GENDER,BLOODTYPE,BIRTHDATE,REGIDATE,MBTICODE)"
 			+ "VALUES(?,?,?,?,?,?,?,?,?,?)";
 	private final String UPDATE = "UPDATE REGIDENT SET USERTYPE = ?, INTERESTS=?, ROOMS=?, MBTICODE=?, OCCUPATION=? WHERE ACCOUNT =?";
-	
+	private final String DELETE = "DELETE FROM REGIDENT WHERE ACCOUNT = ?";
 	
 	public RegidentDao() {
 		try {
@@ -165,8 +165,9 @@ public class RegidentDao {
 			psmt.setString(3, vo.getRooms());
 			psmt.setString(4, vo.getMBTIcode());
 			psmt.setString(5, vo.getOccupation());
-			
+			psmt.setString(6, vo.getAccount());
 			n = psmt.executeUpdate();
+			
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
@@ -174,6 +175,62 @@ public class RegidentDao {
 		}
 		return n;
 	}
+
+	public RegidentVo edit(RegidentVo vo) {
+		
+		try {
+			psmt = conn.prepareStatement(REGIDENT);
+			psmt.setString(1, vo.getAccount());
+			
+			rs = psmt.executeQuery();
+			if(rs.next()) { //한레코드라서 if
+				
+				vo = new RegidentVo();
+				vo.setAccount(rs.getString("account"));
+				vo.setNickName(rs.getString("nickname"));
+				vo.setUserType(rs.getString("usertype"));
+				vo.setPassword(rs.getString("password"));
+				vo.setArea(rs.getString("area"));
+				vo.setGender(rs.getString("gender"));
+				vo.setBloodType(rs.getString("bloodtype"));
+				vo.setBirthDate(rs.getDate("birthdate"));
+				vo.setRegiDate(rs.getDate("regidate"));
+				vo.setMind(rs.getInt("mind"));
+				vo.setEnergy(rs.getInt("energy"));
+				vo.setNature(rs.getInt("nature"));
+				vo.setTatics(rs.getInt("tatics"));
+				vo.setMBTIcode(rs.getString("mbticode"));
+				vo.setInterests(rs.getString("interests"));
+				vo.setRooms(rs.getString("rooms"));
+				vo.setOccupation(rs.getString("occupation"));
+
+			}
+			}catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			System.out.println("DAO완료");
+			close();
+		}
+		return vo;
+		
+	}
+
+	public int delete(RegidentVo vo) {
+		int n = 0;
+		try {
+			psmt = conn.prepareStatement(DELETE);
+			psmt.setString(1, vo.getAccount());
+			n = psmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return n;
+		
+	}
+	
 	
 	
 	

@@ -15,14 +15,14 @@ import com.regident.dao.RegidentVo;
 /**
  * Servlet implementation class RegiLoad
  */
-@WebServlet("/RegiEdit.do")
-public class RegiEdit extends HttpServlet {
+@WebServlet("/RegiUpdate.do")
+public class RegiUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RegiEdit() {
+    public RegiUpdate() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -44,16 +44,16 @@ public class RegiEdit extends HttpServlet {
 		
 		int n = dao.update(vo);		
 		
-		if(n!=0) {response.sendRedirect("/Commfy/List.do");}
-		else {
+		if(n!=0) {
+			response.sendRedirect("/Commfy/RegiList.do");
+		}else {
 			String msg = "글을 수정하지 못했습니다.";
 			request.setAttribute("msg", msg);
 			String viewPage = "jsp/login/error.jsp";
 			RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 			dispatcher.forward(request, response);
 		}
-		
-		
+
 	}
 
 	/**
