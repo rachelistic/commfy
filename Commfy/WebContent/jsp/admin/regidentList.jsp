@@ -21,7 +21,7 @@ tr:hover {background:white; color:black;}
 
 </style>
 </head>
-<body style="background-color: #F0ECDD; float: left; display: inline">
+<body style="background-color: clouds; float: left; display: inline">
 	<div align="center">
 	
 		<div id="title">
@@ -86,7 +86,7 @@ tr:hover {background:white; color:black;}
 				</c:forEach>
 			</table>
 			<form id="frm" name="frm" method="post">
-				<input type="hidden" id="mid" name="mid">
+				<input type="hidden" id="account" name="account">
 			</form>
 		</div>
 

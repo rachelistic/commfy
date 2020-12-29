@@ -28,6 +28,7 @@ public class RegidentDao {
 			+ "VALUES(?,?,?,?,?,?,?,?,?,?)";
 	private final String UPDATE = "UPDATE REGIDENT SET USERTYPE = ?, INTERESTS=?, ROOMS=?, MBTICODE=?, OCCUPATION=? WHERE ACCOUNT =?";
 	private final String DELETE = "DELETE FROM REGIDENT WHERE ACCOUNT = ?";
+	private final String MEMBERLOGIN = "SELECT * FROM REGIDENT WHERE ACCOUNT=? AND PASSWORD =?";
 	
 	public RegidentDao() {
 		try {
@@ -230,7 +231,35 @@ public class RegidentDao {
 		return n;
 		
 	}
-	
+
+	public RegidentVo loginCheck(RegidentVo vo) {
+		try {
+			psmt = conn.prepareStatement(MEMBERLOGIN);
+			psmt.setString(1, vo.getAccount());
+			psmt.setString(2, vo.getPassword());
+
+			rs = psmt.executeQuery();
+
+			if (rs.next()) {
+				vo.setNickName(rs.getString("nickname"));
+				vo.setUserType(rs.getString("usertype"));
+
+				System.out.println(rs.getString("nickname"));
+				System.out.println(rs.getString("usertype"));
+			} else {
+				System.out.println("값없음");
+				vo.setUserType(rs.getString(""));
+				System.out.println(rs.getString(""));
+			}
+
+		} catch (Exception e) { // TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+
+		return vo;
+	}
 	
 	
 	

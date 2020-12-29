@@ -106,17 +106,29 @@ color:white;
 			<li><a href="/Commfy/jsp/login/welcome.jsp">COMMFY PLANET</a></li>
 			<li id="menu"><a>MENU</a>
 				<ul>
-					<li><a href="#">내정보</a></li>
+				<c:if test="${account eq null}">
+				<li><a href="/Commfy/jsp/login/login.jsp">로그인</a></li>
+				</c:if>
+				
+					
 					<li><a>게시판</a></li>
 					<li><a>매칭 보기</a></li>
+				<c:if test="${usertype eq 'manager'}">	
 					<li><a href="/Commfy/RegiList.do">회원정보관리</a></li>
-					<li><a>MBIT관리</a></li>
+					<li><a href="/Commfy/MBTIList.do">MBIT관리</a></li>
+				</c:if>
+				<c:if test="${account ne null}">
+					<li><a href="/Commfy/MyInfo.do">마이페이지</a></li>	
+					<li><a href="/Commfy/Logout.do">로그아웃</a></li>
+				</c:if>
 				</ul>
 			</li>
 		</ul>
+		
 	</nav>
-
-	<!-- 
+	
+	<input type="hidden" id="account" name="account">
+	<!--  메뉴에서 마이페이지에다가 어카운트 정보를 흘릴수있는 서블렛 만들기! 
 
 	<nav>
 		<ul id="navi">

@@ -10,14 +10,15 @@
 <title>회원정보조회</title>
 
 <style>
-body{background-color: #F0ECDD;}
+body{background-color: clouds;}
 table {width:80%;}
 #user td {width:50;}
 tr {height:4rem;}
 table {border:10px solid white;}
 tr{background:white; }
-input {background:#F0ECDD; border:0; height:2rem;}
-select {background:#F0ECDD; border:0; height:2rem;}
+table input {background:lightgrey; border:0; height:2rem; width:80%;}
+select {background:lightgrey; border:0; height:2rem;}
+input {background:lightgrey; border:0; height:2rem; }
 </style>
 </head>
 

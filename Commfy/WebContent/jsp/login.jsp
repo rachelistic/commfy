@@ -68,9 +68,11 @@ input {
 	padding: 15px;
 	box-sizing: border-box;
 	font-size: 14px;
+	height:3rem;
 }
 
-.form button {
+.button {
+	
 	font-family: "Roboto", sans-serif;
 	text-transform: uppercase;
 	outline: 0;
@@ -78,15 +80,15 @@ input {
 	width: 100%;
 	border: 0;
 	padding: 15px;
-	color: #FFFFFF;
+	color: black;
 	font-size: 14px;
 	-webkit-transition: all 0.3 ease;
 	transition: all 0.3 ease;
 	cursor: pointer;
 }
 
-.form button:hover, .form button:active, .form button:focus {
-	background: #43A047;
+.button:hover, .button:active, .button:focus {
+	background: #43A047; color:white;
 }
 
 .form .message {
@@ -169,21 +171,14 @@ body {
 
 			<div class="login-page">
 				<div class="form">
-					<form class="register-form">
-						<input type="text" placeholder="name" /> <input type="password"
-							placeholder="password" /> <input type="text"
-							placeholder="email address" />
-						<button>create</button>
+				
+					<form class="login-form" id="frm" name="frm" action="/Commfy/Login.do" method="post">
+						<input type="text" name="uaccount" id="uaccount" placeholder="account" /> 
+						<input type="password" name="upassword" id="upassword" placeholder="password" />
+						
+						<input class="button" type="submit" value="로 그 인">
 						<p class="message">
-							Already registered? <a href="#">Sign In</a>
-						</p>
-					</form>
-					<form class="login-form">
-						<input type="text" placeholder="username" /> <input
-							type="password" placeholder="password" />
-						<button>login</button>
-						<p class="message">
-							Not registered? <a href="#">Create an account</a>
+							아직 등록된 사용자가 아닌가요? <a href="login/register.jsp">회원가입하기</a>
 						</p>
 					</form>
 				</div>

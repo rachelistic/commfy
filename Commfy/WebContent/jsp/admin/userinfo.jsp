@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>User Info</title>
 <style>
-body{background-color: #F0ECDD;}
+body{background-color: clouds;}
 table {width:80%;}
 #user td {width:50;}
 tr {height:4rem;}
@@ -50,7 +50,6 @@ button{background:white; border:0; height:2rem;}
 			</tr>
 			<tr>
 				<th width="100">관심사</th>
-				<td align="center" colspan=3">${vo.interests }</td>
 			</tr>
 			<tr>	
 				<th width="100">길드</th>
@@ -61,7 +60,7 @@ button{background:white; border:0; height:2rem;}
 			</tr>
 			<tr>	
 				<th width="100">직업</th>
-				<td align="center" colspan=3">${vo.occupation }</td>
+				<td align="center" colspan=3>${vo.occupation }</td>
 			</tr>
 			
 		</table>
