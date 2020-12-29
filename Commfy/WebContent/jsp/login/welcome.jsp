@@ -11,7 +11,6 @@ body {
 	display: inline;
 }
 
-
 .col-4 {
 	position: relative;
 	float: left;
@@ -24,20 +23,13 @@ body {
 	float: left;
 	width: 100%;
 	align-content: center;
-
-	
 }
-
 
 img {
 	width: auto;
-	height:80vh;
-	padding:20px;
-	
+	height: 80vh;
+	padding: 20px;
 }
-
-
-
 
 body {
 	font-family: "Roboto", sans-serif;
@@ -54,35 +46,44 @@ body {
 <body>
 
 
-<div class="col-12" align="center">
+	<div class="col-12" align="center">
 
-<c:if test="${usertype ne null}">
-			
+		<c:if test="${usertype ne null}">
+
 			<h1>${nickname}님 환영합니다.</h1>
-<h1>당신은 ${isla} 섬의 ${mbtitown} 마을 ${usertype} 입니다.</h1>
-오늘은 무슨일이 일어나고 있을까요?
-<br>${mbtitown}마을 소식 <a href="#">바로가기</a>
-<br> ${isla} 섬 소식 <a href="#">바로가기</a><br><br>
-관심있는 태그에 새 피드가 있어요 <br>
-태그별 피드 보기<br>
+			<h1>당신은 ${isla} 섬의 ${mbtitown} 마을 ${usertype} 입니다.</h1>
+			<a>오늘은 무슨일이 일어나고 있을까요?</a>
+			<br>
+			<a>${mbtitown}마을 소식 </a>
+			<a href="#">바로가기</a>
+			<br> ${isla} 섬 소식 <a href="#">바로가기</a>
+			<br>
+			<br>
+
 		</c:if>
 		<!-- c:if는 엘즈가 없음  -->
-		<c:if test="${usertype eq null}">
+		<c:if test="${usertype eq null && vo.account ne null}">
 			<br>
-			<h1>${vo.account}가존재하지 않거나</h1>
+			<h1>입력하신 [${vo.account}]가 존재하지않거나</h1>
 			<h1>패스워드가 일치하지 않습니다.</h1>
-			<a href="jsp/login.jsp">로그인 페이지로</a>
+			<a href="/Commfy/jsp/login.jsp">로그인 페이지로</a>
 			<div></div>
 		</c:if>
+		<c:if test="${vo.account eq null}">
+			<h1>가입을 환영합니다. 로그인 해주세요</h1>
+			<a href="/Commfy/jsp/login.jsp">로그인 페이지로</a>
+		</c:if>
+		
 
-</div>
-<div class="col-12">
-	
-	<div class="map">
-		<div class="img" align="center" >
-			<img src="/Commfy/jsp/login/map.jpg" width="50%">
+
+	</div>
+	<div class="col-12">
+
+		<div class="map">
+			<div class="img" align="center">
+				<img src="/Commfy/jsp/login/map.jpg" width="50%">
+			</div>
 		</div>
 	</div>
-</div>
 </body>
 </html>

@@ -53,9 +53,11 @@ public class RegiAdd extends HttpServlet {
 		int n = dao.insert(vo);
 		String viewPage;
 		if(n!=0) {
+			vo = new RegidentVo();
+			vo.getMBTIcode();			
 			response.sendRedirect("jsp/login/welcome.jsp");
 			System.out.println("등록되었습니당");
-			
+		
 					
 		}else {
 			String msg = "데이터 베이스에 정상적으로 입력하지 못했습니다.";
@@ -65,7 +67,8 @@ public class RegiAdd extends HttpServlet {
 			dispatcher.forward(request, response);
 			
 			System.out.println("가입 실패!");
-		}
+			
+		}request.setAttribute("vo", vo);
 	}
 
 	/**

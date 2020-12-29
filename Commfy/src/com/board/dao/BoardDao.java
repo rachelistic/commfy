@@ -8,8 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-
-
 public class BoardDao {
 	private String driver = "oracle.jdbc.driver.OracleDriver";
 	private String url = "jdbc:oracle:thin:@localhost:1521:xe";
@@ -20,8 +18,11 @@ public class BoardDao {
 	private PreparedStatement psmt;
 	private ResultSet rs;
 	
-	private final String MBTIS = "SELECT * FROM BOARD";
-	private final String MBTI = "SELECT * FROM MBTITOWN WHERE BOARD = ?";
+	private final String POSTS = "SELECT * FROM BOARD";
+	private final String POST = "SELECT * FROM BOARD WHERE POSTID = ?";
+	
+	private final String HIT_UPDATE = "UPDATE BOARD SET POSTHIT = POSTHIT + 1 WHERE POSTID = ?";
+//	1씩증가 왜 안돔? 
 	/*
 	 * private final String INSERT = "INSERT INTO MBTITOWN( " +
 	 * "ACCOUNT,NICKNAME,USERTYPE,PASSWORD,AREA,GENDER,BLOODTYPE,BIRTHDATE,REGIDATE,MBTICODE)"
@@ -47,30 +48,40 @@ public class BoardDao {
 		ArrayList<BoardVo> list = new ArrayList<BoardVo>();
 		BoardVo vo;
 		try {
-			psmt = conn.prepareStatement(MBTIS);
+			psmt = conn.prepareStatement(POSTS);
 			rs = psmt.executeQuery();
 			while (rs.next()) {
+				
 				vo = new BoardVo();
 				
-				vo.setPostTitle(rs.getString("postid"));
-
+				vo.setPostId(rs.getInt("postid"));
+				vo.setPostTitle(rs.getString("posttitle"));
+				vo.setPostRange(rs.getString("postrange"));
 				
-			    private String postTitle;            
-			    private String postRange;         
-			    private String account ;             
-			    private Date postDate ;            
-			    private int postHit   ;           
-			    private String postArea   ;         
-			    private String postTag    ;         
-			    private String description;        
-			    private String interest   ;         
-			    private String postCategory ;
+				vo.setPostWriter(rs.getString("postwriter"));
+				vo.setPostDate(rs.getDate("postdate"));
+				vo.setPostArea(rs.getString("postarea"));
 				
-			    연결하기 
+				
+				vo.setPostContent(rs.getString("postcontent"));
+				vo.setPostCategory(rs.getString("postcategory"));
+				vo.setPostHit(rs.getInt("posthit"));
+			
+				vo.setEventTitle(rs.getString("eventtitle"));
+				vo.setEventPlace(rs.getString("eventplace"));
+				vo.setEventDate(rs.getDate("eventdate"));
+				vo.setEventTime(rs.getString("eventtime"));
+				vo.setEventMin(rs.getString("eventmin"));
+				vo.setEventMax(rs.getString("eventmax"));
+				vo.setEventFee(rs.getInt("eventfee"));
+				
+				vo.setInterest(rs.getString("interest"));
+				vo.setInterestSm(rs.getString("interestsm"));
+			    vo.setEventJoin(rs.getInt("eventjoin"));  
 				
 				
 				System.out.println("연결확인용");
-				System.out.println(rs.getString("worstmatch0"));
+				System.out.println(rs.getString("posttitle"));
 				
 				list.add(vo);
 				
@@ -85,26 +96,51 @@ public class BoardDao {
 		return list;
 	}
 	
-//
-	public MBTIVo select(MBTIVo vo) {
+	
+	
+
+	public BoardVo select(BoardVo vo) {
 		try {
-			psmt = conn.prepareStatement(MBTI);
-			psmt.setString(1, vo.getMbtiCode());
+			psmt = conn.prepareStatement(POST);
+			psmt.setInt(1, vo.getPostId());
 			rs = psmt.executeQuery();
 			
 			if (rs.next()) {
 				
+				psmt=conn.prepareStatement(HIT_UPDATE);
+				psmt.setInt(1, vo.getPostId());
+				psmt.execute(); //조회수를 1 증가한다.
 
-				vo.setTown(rs.getString("town"));
-				vo.setMbtiCode(rs.getString("mbticode"));
-				vo.setIsla(rs.getString("isla"));
-				vo.setDescription(rs.getString("description"));
-				vo.setBestMatch100(rs.getString("bestmatch100"));
-				vo.setGoodMatch75(rs.getString("goodmatch75"));
-				vo.setOkayMatch50(rs.getString("okaymatch50"));
-				vo.setBadMatch25(rs.getString("badmatch25"));
-				vo.setWorstMatch0(rs.getString("worstmatch0"));
-				vo.setJobList(rs.getString("joblist"));
+				vo = new BoardVo();
+				vo.setPostId(rs.getInt("postid"));
+				vo.setPostTitle(rs.getString("posttitle"));
+				vo.setPostRange(rs.getString("postrange"));
+				
+				vo.setPostWriter(rs.getString("postwriter"));
+				vo.setPostDate(rs.getDate("postdate"));
+				vo.setPostArea(rs.getString("postarea"));
+				
+				
+				vo.setPostContent(rs.getString("postcontent"));
+				vo.setPostCategory(rs.getString("postcategory"));
+				vo.setPostHit(rs.getInt("posthit"));
+			
+				
+				vo.setEventTitle(rs.getString("eventtitle"));
+				vo.setEventPlace(rs.getString("eventplace"));
+				vo.setEventDate(rs.getDate("eventdate"));
+				vo.setEventTime(rs.getString("eventtime"));
+				vo.setEventMin(rs.getString("eventmin"));
+				vo.setEventMax(rs.getString("eventmax"));
+				vo.setEventFee(rs.getInt("eventfee"));
+				
+				vo.setInterest(rs.getString("interest"));
+				vo.setInterestSm(rs.getString("interestsm"));
+				vo.setEventJoin(rs.getInt("eventjoin"));     
+				
+				
+				System.out.println("연결확인용");
+				System.out.println(rs.getInt("posthit"));
 				
 				
 			}
@@ -116,7 +152,7 @@ public class BoardDao {
 			System.out.println("성공?");
 			close();
 		}
-		System.out.println(vo.getMbtiCode());
+		System.out.println(vo.getPostId());
 		return vo;
 	}
 	

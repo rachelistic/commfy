@@ -111,7 +111,7 @@ color:white;
 				</c:if>
 				
 					
-					<li><a>게시판</a></li>
+					<li><a href="/Commfy/BoardList.do">게시판</a></li>
 					<li><a>매칭 보기</a></li>
 				<c:if test="${usertype eq 'manager'}">	
 					<li><a href="/Commfy/RegiList.do">회원정보관리</a></li>

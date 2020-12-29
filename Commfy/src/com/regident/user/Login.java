@@ -44,7 +44,7 @@ public class Login extends HttpServlet {
 		vo = dao.loginCheck(vo); 
 		
 		if(vo.getUserType() != "") { 
-		session.setAttribute("account", vo.getAccount()); //세션객체에다가 id와 auto를 담아. 
+		session.setAttribute("uaccount", vo.getAccount()); //세션객체에다가 id와 auto를 담아. 
 		session.setAttribute("usertype", vo.getUserType());
 		session.setAttribute("nickname", vo.getNickName());
 		session.setAttribute("mbticode", vo.getMBTIcode());
