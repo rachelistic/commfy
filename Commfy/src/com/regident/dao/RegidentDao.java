@@ -243,9 +243,9 @@ public class RegidentDao {
 			if (rs.next()) {
 				vo.setNickName(rs.getString("nickname"));
 				vo.setUserType(rs.getString("usertype"));
-
+				vo.setMBTIcode(rs.getString("mbticode"));
 				System.out.println(rs.getString("nickname"));
-				System.out.println(rs.getString("usertype"));
+				System.out.println(rs.getString("mbticode"));
 			} else {
 				System.out.println("값없음");
 				vo.setUserType(rs.getString(""));

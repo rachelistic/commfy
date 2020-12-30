@@ -1,4 +1,4 @@
-package com.regident.admin;
+package com.regident.user;
 
 import java.io.IOException;
 
@@ -8,7 +8,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.board.dao.BoardDao;
+import com.board.dao.BoardVo;
+import com.mbti.dao.MBTIDao;
+import com.mbti.dao.MBTIVo;
 import com.regident.dao.RegidentDao;
 import com.regident.dao.RegidentVo;
 
@@ -31,27 +36,27 @@ public class myInfo extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		RegidentDao dao = new RegidentDao();
-		RegidentVo vo = new RegidentVo();
-				
-		vo.setAccount(request.getParameter("account"));
-		vo.setUserType(request.getParameter("nusertype"));
-		vo.setInterests(request.getParameter("ninterest"));
-		vo.setRooms(request.getParameter("nroom"));
-		vo.setMBTIcode(request.getParameter("nmbti"));
-		vo.setOccupation(request.getParameter("njob"));
-				
-		vo = dao.select(vo);
+//		request.setCharacterEncoding("utf-8");
+//		RegidentDao dao = new RegidentDao();
+//		RegidentVo vo = new RegidentVo();
+//				
+//		vo.setAccount(request.getParameter("account"));
+//		vo.setUserType(request.getParameter("nusertype"));
+//		vo.setInterests(request.getParameter("ninterest"));
+//		vo.setRooms(request.getParameter("nroom"));
+//		vo.setMBTIcode(request.getParameter("nmbti"));
+//		vo.setOccupation(request.getParameter("njob"));
+//				
+//		vo = dao.select(vo);
+//		
+//		request.setAttribute("vo", vo);
+//		String viewPage="jsp/admin/residentEdit.jsp";
+//		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
+//		dispatcher.forward(request, response);
+//		
+//		
 		
-		request.setAttribute("vo", vo);
-		String viewPage="jsp/admin/residentEdit.jsp";
-		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
-		dispatcher.forward(request, response);
-		
-		
-		
-		
+
 	}
 
 	/**

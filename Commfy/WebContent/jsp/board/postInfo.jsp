@@ -158,16 +158,17 @@ a:active {
 				<input type="hidden" id="postid" name="postid" value="${vo.postId}">
 
 				<!-- 아까 히든 말들어준데어데? -->
-				<c:if test="${vo.postWriter eq account}">
+				<c:if test="${vo.postWriter eq uaccount}">
+				이부분은 글쓴이에게만 보입니다.
 				<button type="submit" onClick='formSubmit("1")'>글수정</button>
 				&nbsp;&nbsp;&nbsp;
 				<button type="submit" onClick='formSubmit("2")'>글삭제</button>
 				&nbsp;&nbsp;&nbsp;
-				<button type="button" onClick="location.href='/Commfy/BoardList.do'">목록으로</button>
+				
 				</c:if>
-				<c:if test="${vo.postWriter ne account}">
+				
 				<button type="button" onClick="location.href='/Commfy/BoardList.do'">목록으로</button>
-				</c:if>
+				
 			</form>
 		</div>
 

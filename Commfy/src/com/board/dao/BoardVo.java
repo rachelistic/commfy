@@ -19,8 +19,8 @@ public class BoardVo {
     private String eventPlace  ; 
     private Date eventDate ;
     private String eventTime;
-    private String eventMin;
-    private String eventMax;
+    private int eventMin;
+    private int eventMax;
     private int eventFee;
     private String Interest;
     private String interestSm;
@@ -103,16 +103,16 @@ public class BoardVo {
 	public void setEventTime(String eventTime) {
 		this.eventTime = eventTime;
 	}
-	public String getEventMin() {
+	public int getEventMin() {
 		return eventMin;
 	}
-	public void setEventMin(String eventMin) {
+	public void setEventMin(int eventMin) {
 		this.eventMin = eventMin;
 	}
-	public String getEventMax() {
+	public int getEventMax() {
 		return eventMax;
 	}
-	public void setEventMax(String eventMax) {
+	public void setEventMax(int eventMax) {
 		this.eventMax = eventMax;
 	}
 	public int getEventFee() {
@@ -139,13 +139,11 @@ public class BoardVo {
 	public void setEventJoin(int eventJoin) {
 		this.eventJoin = eventJoin;
 	}
-	   
-    
-
-
-    
-    
-    
-
 	
+    
+    
+    
+    
+    
+    
 }

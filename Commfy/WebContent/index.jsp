@@ -9,7 +9,7 @@
 </head>
 <body>
 
- 	<a href="jsp/login.jsp">log in</a>
+ 	<a href="/Commfy/jsp/login/login.jsp">log in</a>
 
 </body>
 <!-- jstl 은 ,, ojdbc디비 연결용 -->

@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.regident.dao.RegidentVo;
+
 
 
 
@@ -22,8 +24,9 @@ public class MBTIDao {
 	
 	private final String MBTIS = "SELECT * FROM MBTITOWN";
 	private final String MBTI = "SELECT * FROM MBTITOWN WHERE MBTICODE = ?";
-	/*
-	 * private final String INSERT = "INSERT INTO MBTITOWN( " +
+	private final String MBTI2 = "SELECT * FROM MBTITOWN WHERE MBTICODE = "
+			+ " (SELECT MBTICODE FROM REGIDENT WHERE ACCOUNT=?)";	
+	 /* private final String INSERT = "INSERT INTO MBTITOWN( " +
 	 * "ACCOUNT,NICKNAME,USERTYPE,PASSWORD,AREA,GENDER,BLOODTYPE,BIRTHDATE,REGIDATE,MBTICODE)"
 	 * + "VALUES(?,?,?,?,?,?,?,?,?,?)";
 	 */
@@ -112,6 +115,39 @@ public class MBTIDao {
 		}
 		System.out.println(vo.getMbtiCode());
 		return vo;
+	}
+	
+	public MBTIVo select2(RegidentVo vo, MBTIVo vo2) {
+		try {
+			psmt = conn.prepareStatement(MBTI2);
+			psmt.setString(1, vo.getAccount());
+			rs = psmt.executeQuery();
+			
+			if (rs.next()) {
+				
+				vo2.setTown(rs.getString("town"));
+				vo2.setMbtiCode(rs.getString("mbticode"));
+				vo2.setIsla(rs.getString("isla"));
+				vo2.setDescription(rs.getString("description"));
+				vo2.setBestMatch100(rs.getString("bestmatch100"));
+				vo2.setGoodMatch75(rs.getString("goodmatch75"));
+				vo2.setOkayMatch50(rs.getString("okaymatch50"));
+				vo2.setBadMatch25(rs.getString("badmatch25"));
+				vo2.setWorstMatch0(rs.getString("worstmatch0"));
+				vo2.setJobList(rs.getString("joblist"));
+				
+				
+			}System.out.println(rs.getString("town"));
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("MBTIVO select2 실패");
+		} finally {
+			System.out.println("MBTIVO select2 성공?");
+			close();
+		}
+		
+		return vo2;
 	}
 	
 //	public int update(RegidentVo vo) {   //게시글 수정

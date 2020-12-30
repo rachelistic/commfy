@@ -50,13 +50,9 @@ body {
 
 		<c:if test="${usertype ne null}">
 
-			<h1>${nickname}님 환영합니다.</h1>
-			<h1>당신은 ${isla} 섬의 ${mbtitown} 마을 ${usertype} 입니다.</h1>
-			<a>오늘은 무슨일이 일어나고 있을까요?</a>
-			<br>
-			<a>${mbtitown}마을 소식 </a>
-			<a href="#">바로가기</a>
-			<br> ${isla} 섬 소식 <a href="#">바로가기</a>
+			<h2>${usertype} ${nickname}님 환영합니다.</h2>
+			<h1>당신은 ${isla}의 <br>${town}입니다.</h1>
+			<h2><a href="#">우리마을 소식</a> <a href="#">우리섬 소식</a></h2>
 			<br>
 			<br>
 
@@ -69,9 +65,9 @@ body {
 			<a href="/Commfy/jsp/login.jsp">로그인 페이지로</a>
 			<div></div>
 		</c:if>
-		<c:if test="${vo.account eq null}">
-			<h1>가입을 환영합니다. 로그인 해주세요</h1>
-			<a href="/Commfy/jsp/login.jsp">로그인 페이지로</a>
+		<c:if test="${uaccount eq null}">
+			<h1>환영합니다. 로그인 해주세요</h1>
+			<a href="/Commfy/jsp/login/login.jsp">로그인 페이지로</a>
 		</c:if>
 		
 
@@ -86,4 +82,7 @@ body {
 		</div>
 	</div>
 </body>
+
+
+
 </html>

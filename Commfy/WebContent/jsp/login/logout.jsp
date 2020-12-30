@@ -10,6 +10,7 @@
 
 <div class="col-12" align="center">
 <h1>로그아웃 되었습니다.</h1>
+<a href="jsp/login/login.jsp">로그인하기</a>
 </div>
 <div class="col-12" align="center">
 	
@@ -18,7 +19,7 @@
 			<img src="jsp/login/map.jpg" width="50%">
 		</div>
 		<br>
-		<a href="jsp/login.jsp">로그인하기</a>
+		
 	</div>
 </div>
 </body>

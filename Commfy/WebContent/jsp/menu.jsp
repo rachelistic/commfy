@@ -106,19 +106,21 @@ color:white;
 			<li><a href="/Commfy/jsp/login/welcome.jsp">COMMFY PLANET</a></li>
 			<li id="menu"><a>MENU</a>
 				<ul>
-				<c:if test="${account eq null}">
+				<c:if test="${uaccount eq null}">
 				<li><a href="/Commfy/jsp/login/login.jsp">로그인</a></li>
 				</c:if>
 				
 					
 					<li><a href="/Commfy/BoardList.do">게시판</a></li>
-					<li><a>매칭 보기</a></li>
+					<li><a href="/Commfy/Logout.do">이벤트</a></li>
 				<c:if test="${usertype eq 'manager'}">	
 					<li><a href="/Commfy/RegiList.do">회원정보관리</a></li>
 					<li><a href="/Commfy/MBTIList.do">MBIT관리</a></li>
 				</c:if>
-				<c:if test="${account ne null}">
-					<li><a href="/Commfy/MyInfo.do">마이페이지</a></li>	
+				<c:if test="${uaccount ne null}">
+					<li><a>매칭 보기</a></li>
+					<li><a href="/Commfy/jsp/mymenu/myPage.jsp">마이페이지</a></li>	
+					
 					<li><a href="/Commfy/Logout.do">로그아웃</a></li>
 				</c:if>
 				</ul>
@@ -128,6 +130,7 @@ color:white;
 	</nav>
 	
 	<input type="hidden" id="account" name="account">
+	<input type="hidden" id="umbticode" name="umbticode" value="${mbticode}">
 	<!--  메뉴에서 마이페이지에다가 어카운트 정보를 흘릴수있는 서블렛 만들기! 
 
 	<nav>
