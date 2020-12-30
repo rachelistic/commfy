@@ -19,6 +19,7 @@ nav {
 	width: 100%;
 	list-style: none;
 	float: left;
+	z-index:10;
 }
 
 nav>ul>li {

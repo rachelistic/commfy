@@ -98,20 +98,11 @@ function closeEvent() {document.getElementById('eventon').style.display="block";
 }
 
 
+function add(){
+	document.frm.submit();
+	alert("등록되었습니다.");
+}
 
-
-
-/* 
-$('#pcategory').change(function() {
-	alert($(this).val());
-	var state = $('#pcategory option:selected').val();
-	if ( state == '언택트모임'|| state == '컨택트모임') {
-		$('#eventb').show();
-
-	} else {
-		$('#eventb').hide();
-	}
-}); */
 </script>
 
 
@@ -219,29 +210,30 @@ $('#pcategory').change(function() {
 				</tr>
 
 				<tr>
-					<th width="100">이벤트 날짜</th>
-					<td align="center"><input type="date" name="edate" id="edate"
-						style="width: 200px;"> <input type="text" id="etime"
-						name="etime" placeholder="24:00로 표기" style="width: 100px;">시</td>
+				<th width="100">이벤트 날짜</th>
+				<td align="center">
+				   
+				    <input type="date" id="edate" name="edate" style="width:150px">
+					<input type="text" id="etime" name="etime" placeholder="24:00로 표기" style="width: 100px;">시
+				</td>
 
 				</tr>
 				<tr>
 					<th width="100">이벤트 장소</th>
-					<td align="center"><input type="text" name="eplace"
-						id="eplace"></td>
+					<td align="center"><input type="text" name="eplace" id="eplace"></td>
 
 
 				</tr>
 				<tr>
 					<th width="100">모집 인원</th>
-					<td align="center">최소 <input type="text" name="emin" id="emin" placeholder="1" style="width: 100px;">명 부터 최대 
-					<input type="text" id="emax" name="emax" style="width: 100px;">명
+					<td align="center">최소 <input type="text" name="emin" id="emin" value="1" style="width: 100px;">명 부터 최대 
+					<input type="text" id="emax" name="emax" value="1" style="width: 100px;">명
 						까지
 					</td>
 				</tr>
 				<tr>
 					<th width="100">참가 요금</th>
-					<td align="center"><input type="text" placeholder="0" name="efee" id="efee" style="width: 100px;">원</td>
+					<td align="center"><input type="text" value="0" name="efee" id="efee" style="width: 100px;">원</td>
 				</tr>
 				<tr>
 					<th width="100">분 류</th>
@@ -277,7 +269,7 @@ $('#pcategory').change(function() {
 				</tr>
 				<tr>
 					<th width="100">현재 모집된 인원</th>
-					<td align="center"><input type="text" placeholder="최소 1"
+					<td align="center"><input type="text" value="1" 
 						name="ejoin" id="ejoin" style="width: 100px;">명</td>
 				</tr>
 
@@ -290,10 +282,10 @@ $('#pcategory').change(function() {
 		<div align="center">
 			
 				<input type="hidden" id="postid" name="postid" value="${vo.postId}">
-
+	
 				<input type="button" value="등록하기" onClick="add()">
 				<button type="button" onClick="location.href='/Commfy/BoardList.do'">목록으로</button>
-
+		
 			<br> <br>
 		</div>
 
@@ -321,6 +313,9 @@ function ShowHideDiv(obj) {
 
 
 document.getElementById('currentDate').value = 
+	new Date().toISOString().substring(0, 10);
+	
+document.getElementById('edate').value = 
 	new Date().toISOString().substring(0, 10);
 
 function formSubmit(n) {

@@ -23,8 +23,10 @@ public class BoardDao {
 	
 	private final String HIT_UPDATE = "UPDATE BOARD SET POSTHIT = POSTHIT + 1 WHERE POSTID = ?";
 	private final String INSERT ="INSERT INTO BOARD" 
-			+ "(POSTID,POSTCATEGORY,POSTTITLE,POSTCONTENT,POSTAREA,POSTRANGE,EVENTTITLE,EVENTTIME,EVENTPLACE,INTEREST,INTERESTSM,POSTWRITER)"
-			+ "VALUES(po_SEQ.NEXTVAL,?,?,?,?,?,?,?,?,?,?,?)";
+			+ "(POSTID,POSTCATEGORY,POSTTITLE,POSTCONTENT,POSTAREA,POSTRANGE,POSTDATE,"
+			+ "EVENTTITLE,EVENTDATE,EVENTTIME,EVENTPLACE,EVENTMIN,EVENTMAX,EVENTFEE,"
+			+ "INTEREST,INTERESTSM,EVENTJOIN,POSTWRITER)"
+			+ "VALUES(PO_SEQ.NEXTVAL,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	
 	/*
 	 * private final String INSERT = "INSERT INTO MBTITOWN( " +
@@ -130,6 +132,7 @@ public class BoardDao {
 			
 				
 				vo.setEventTitle(rs.getString("eventtitle"));
+				
 				vo.setEventPlace(rs.getString("eventplace"));
 				vo.setEventDate(rs.getDate("eventdate"));
 				vo.setEventTime(rs.getString("eventtime"));
@@ -185,26 +188,28 @@ public class BoardDao {
 		int n = 0;
 		try { 
 			psmt = conn.prepareStatement(INSERT);
+			
 			psmt.setString(1, vo.getPostCategory());
 			psmt.setString(2, vo.getPostTitle());
 			psmt.setString(3, vo.getPostContent());
 			psmt.setString(4, vo.getPostArea());
 			psmt.setString(5, vo.getPostRange());
-			/* psmt.setDate(6, vo.getPostDate()); */
-			psmt.setString(6, vo.getEventTitle());
-			/* psmt.setDate(7, vo.getEventDate()); */
-			psmt.setString(7, vo.getEventTime());
-			psmt.setString(8, vo.getEventPlace());
-			/*
-			 * psmt.setInt(10, vo.getEventMax()); 
-			 * psmt.setInt(11, vo.getEventMax());
-			 * psmt.setInt(12, vo.getEventFee());
-			 */
-			psmt.setString(9, vo.getInterest());
-			psmt.setString(10, vo.getInterestSm());
-			/* psmt.setInt(15, vo.getEventJoin()); */
-			psmt.setString(11, vo.getPostWriter());
-			n=psmt.executeUpdate();
+			psmt.setDate(6, vo.getPostDate()); 
+			psmt.setString(7, vo.getEventTitle());
+			psmt.setDate(8, vo.getEventDate());
+			psmt.setString(9, vo.getEventTime());
+			psmt.setString(10, vo.getEventPlace());
+			
+			 psmt.setInt(11, vo.getEventMin()); 
+			 psmt.setInt(12, vo.getEventMax());
+			 psmt.setInt(13, vo.getEventFee());
+			
+			psmt.setString(14, vo.getInterest());
+			psmt.setString(15, vo.getInterestSm());
+			psmt.setInt(16, vo.getEventJoin()); 
+			psmt.setString(17, vo.getPostWriter());
+			
+			n = psmt.executeUpdate();
 			
 			System.out.println("등록완료");
 		} catch (Exception e) {

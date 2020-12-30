@@ -53,7 +53,7 @@ body {
 			<h2>${usertype} ${nickname}님 환영합니다.</h2>
 			<h1>당신은 ${isla}의 <br>${town}입니다.</h1>
 			<h2><a href="#">우리마을 소식</a> <a href="#">우리섬 소식</a></h2>
-			<br>
+			<h2><a href="#">베스트매치 소식</a> <a href="#">굿매치 소식</a></h2>
 			<br>
 
 		</c:if>

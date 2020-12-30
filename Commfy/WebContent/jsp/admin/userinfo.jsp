@@ -48,15 +48,16 @@ button{background:white; border:0; height:2rem;}
 				<th width="100">가입일</th>
 				<td align="center">${vo.regiDate }</td>
 			</tr>
-			<tr>
-				<th width="100">관심사</th>
-			</tr>
 			<tr>	
 				<th width="100">길드</th>
 				<td align="center">${vo.rooms }</td>
 				
 				<th width="100">MBTI</th>
 				<td align="center">${vo.MBTIcode }</td>
+			</tr>
+			<tr>
+				<th width="100">관심사</th>
+				<td align="center" colspan=3>${vo.interests }</td>
 			</tr>
 			<tr>	
 				<th width="100">직업</th>

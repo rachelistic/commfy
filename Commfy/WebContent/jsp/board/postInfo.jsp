@@ -77,7 +77,7 @@ a:active {
 			<tr>
 				<th width="100">글쓴이</th>
 				<td align="center" colspan=3>
-					<%-- ${vo.마을이름} ---%>어디 마을 주민 <%-- ${vo.유저타입} ---%> ${vo.postWriter }
+					${vo.postWriter }
 				</td>
 			</tr>
 			<tr>
@@ -170,6 +170,8 @@ a:active {
 				<button type="button" onClick="location.href='/Commfy/BoardList.do'">목록으로</button>
 				
 			</form>
+			<br>
+			<br>
 		</div>
 
 	</div>

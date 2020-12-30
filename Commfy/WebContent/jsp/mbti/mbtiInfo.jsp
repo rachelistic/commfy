@@ -82,7 +82,7 @@ button{background:white; border:0; height:2rem;}
 
 <script type="text/javascript">
 function formSubmit(){
-		frm.action="/Commfy/RegiRoadToEdit.do";
+		frm.action="/Commfy/MBTIEdit.do";
 		//요것 바꾸기  MBTIRoadToEdit
 
  }

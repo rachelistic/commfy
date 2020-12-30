@@ -77,16 +77,16 @@ input {background:lightgrey; border:0; height:2rem; }
 				<th width="100">가입일</th>
 				<td align="center">${vo.regiDate }</td>
 			</tr>
+			<tr>	
+				<th width="100" colspan=1>길드</th>
+				<td align="center" colspan=1><input type="text" name="nroom" id="nroom" value="${vo.rooms }"></td>
+			
+				<th width="100" colspan=1>MBTI</th>
+				<td align="center" colspan=1><input type="text" name="nmbti" id="nmbti" value="${vo.MBTIcode }"></td>
+			</tr>
 			<tr>
 				<th width="100">관심사</th>
 				<td align="center" colspan=3><input style="width:98%" type="text" name="ninterest" id="ninterest" value="${vo.interests }"></td>
-			</tr>
-			<tr>	
-				<th width="100">길드</th>
-				<td align="center"><input type="text" name="nroom" id="nroom" value="${vo.rooms }"></td>
-			
-				<th width="100">MBTI</th>
-				<td align="center"><input type="text" name="nmbti" id="nmbti" value="${vo.MBTIcode }"></td>
 			</tr>
 			<tr>	
 				<th width="100">직업</th>

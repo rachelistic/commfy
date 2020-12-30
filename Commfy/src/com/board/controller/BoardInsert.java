@@ -9,12 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.board.dao.BoardDao;
 import com.board.dao.BoardVo;
-import com.regident.dao.RegidentDao;
-import com.regident.dao.RegidentVo;
+
 
 /**
  * Servlet implementation class BoardUpdate
@@ -48,20 +46,20 @@ public class BoardInsert extends HttpServlet {
 		vo.setPostArea(request.getParameter("h_area1"));
 		vo.setPostRange(request.getParameter("prange"));
 		
-		/* vo.setPostDate(Date.valueOf(request.getParameter("currentDate"))); */
+		vo.setPostDate(Date.valueOf(request.getParameter("currentDate")));
 			 
 		vo.setEventTitle(request.getParameter("ptitle"));
-//		vo.setEventDate(Date.valueOf(request.getParameter("edate"))); */
+		vo.setEventDate(Date.valueOf(request.getParameter("edate"))); 
 		vo.setEventTime(request.getParameter("etime"));
 		vo.setEventPlace(request.getParameter("eplace"));
-		/*
-		 * vo.setEventMin(Integer.parseInt(request.getParameter("emin")));
-		 * vo.setEventMax(Integer.parseInt(request.getParameter("emax")));
-		 * vo.setEventFee(Integer.parseInt(request.getParameter("efee")));
-		 */
+		
+		vo.setEventMin(Integer.parseInt(request.getParameter("emin")));
+		vo.setEventMax(Integer.parseInt(request.getParameter("emax")));
+		vo.setEventFee(Integer.parseInt(request.getParameter("efee")));
+		
 		vo.setInterest(request.getParameter("interest"));
 		vo.setInterestSm(request.getParameter("interestsm"));
-		/* vo.setEventJoin(Integer.parseInt(request.getParameter("ejoin"))); */
+		vo.setEventJoin(Integer.parseInt(request.getParameter("ejoin")));
 		
 	
 		int n = dao.insert(vo);
