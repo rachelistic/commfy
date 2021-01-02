@@ -1,6 +1,7 @@
-package com.mbti.admin;
+package com.board.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,20 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mbti.dao.MBTIDao;
-import com.mbti.dao.MBTIVo;
+import com.board.dao.BoardDao;
+import com.board.dao.BoardVo;
 
 /**
- * Servlet implementation class MBTIEdit
+ * Servlet implementation class sortSearch
  */
-@WebServlet("/MBTIEdit.do")
-public class MBTIEdit extends HttpServlet {
+@WebServlet("/sortSearch.do")
+public class sortSearch extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MBTIEdit() {
+    public sortSearch() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,22 +32,16 @@ public class MBTIEdit extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	request.setCharacterEncoding("utf-8");
-	
-	MBTIDao dao = new MBTIDao();
-	MBTIVo vo = new MBTIVo();
-			
-	vo.setMbtiCode(request.getParameter("mbticode"));
-	System.out.println(request.getParameter("mbticode"));
-	vo = dao.select(vo);
-	
-	request.setAttribute("vo", vo);
-	String viewPage="/jsp/mbti/mbtiEdit.jsp";
-	RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
-	dispatcher.forward(request, response);
 		
-	
-	
+		 request.setCharacterEncoding("utf-8");	        
+			String sortresult = request.getParameter("sortresult");
+	        BoardDao dao = new BoardDao();
+	        ArrayList<BoardVo> list = dao.sortSearch(sortresult);
+	        //뿌려준다.
+	        request.setAttribute("searchList", list);
+	        String viewPage = "jsp/board/searchList.jsp"; 
+			RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
+	        dispatcher.forward(request, response);
 	}
 
 	/**

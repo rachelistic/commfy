@@ -5,8 +5,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<script type="text/javascript">
+function formSubmit(){
+		frm.action="/Commfy/MBTIUpdate.do";
+		//요것 바꾸기  MBTIRoadToEdit
+
+ }
+ 
+</script>
+
 <meta charset="UTF-8">
-<title>마이페이지</title>
+<title>MBTI Edit</title>
 <style>
 body{background-color: clouds;}
 table {width:80%;}
@@ -21,62 +31,64 @@ button{background:white; border:0; height:2rem;}
 
 
 <div id="userform" align="center" >
-	<h1>마이페이지</h1>
+	<h1>MBTI타운 수정</h1>
+		<form id="frm" name="frm" method="post" action="">
 		<table id="mbtitown">
-		  	<tr>	
-				<th width="100">어카운트</th>
-				<td align="center" colspan=3>${uaccount}</td>
-			</tr>	
-			<tr>	
-				<th width="100">별명</th>
-				<td align="center" colspan=3>${nickname}</td>
-			</tr>	
-			<tr>	
-				<th width="100">MBTI코드</th>
-				<td align="center" colspan=3>${mbticode}</td>
-			</tr>	
+		
 			<tr>
 				<th width="100">타 운</th>
-				<td align="center">${town }</td>
+				<td align="center">${vo.town }</td>
+				<th width="100">코 드 </th>
+				<td align="center">${vo.mbtiCode }</td>
 				<th width="100">위 치</th>
-				<td align="center">${isla }</td> 
+				<td align="center">${vo.isla }</td> 
 			</tr>
 			<tr>	
 				<th width="100">특 징</th>
-				<td align="center" colspan=3>${desc }</td>
+				<td align="center" colspan=6>
+				<input type="text" id="desc" name="desc" value="${vo.description }">
+				</td>
 			</tr>	
 			
 			<tr>
 				<th width="100">베스트매치</th>
-				<td align="center" colspan=3>${bestm }</td>
+				<td align="center" colspan=6>
+				<input type="text" id="bestm" name="bestm" value="${vo.bestMatch100 }">
+				</td>
 			</tr>
 			<tr>
 				<th width="100">굿매치</th>
-				<td align="center" colspan=3>${goodm }</td>
+				<td align="center" colspan=6>
+				<input type="text" id="goodm" name="goodm" value="${vo.goodMatch75 }">
+				</td>
 			</tr>
 			<tr>
 				<th width="100">오케이매치</th>
-				<td align="center" colspan=3>${okaym }</td>
+				<td align="center" colspan=6>
+				<input type="text" id="okaym" name="okaym" value="${vo.okayMatch50 }">
+				</td>
 			</tr>
 			<tr>
 				<th width="100">배드매치</th>
-				<td align="center" colspan=3>${badm }</td>
+				<td align="center" colspan=6>
+				<input type="text" id="badm" name="badm" value="${vo.badMatch25 }"></td>
 			</tr>
 			<tr>
 				<th width="100">워스트매치</th>
-				<td align="center" colspan=3>${worstm }</td>
+				<td align="center" colspan=6>
+				<input type="text" id="worstm" name="worstm" value="${vo.worstMatch0 }"></td>
 			</tr>
 			<tr>
 				<th width="100">직업 목록</th>
-				<td align="center" colspan=3>${joblist }</td>
+				<td align="center" colspan=6><input type="text" id="job" name="job" value="${vo.jobList }"></td>
 			</tr>
 			<!-- 워스트매치 보기 -->
 		</table>
 		<br><br>
  
-<div align="center">
-		<form id="frm" name="frm" method="post" action="">
-		<input type="hidden" id="account" name="account" value="${vo2.mbtiCode}">
+
+		
+		<input type="hidden" id="mbticode" name="mbticode" value="${vo.mbtiCode}">
 		
 		<!-- 아까 히든 말들어준데어데? -->
 		<button type ="submit" onClick='formSubmit()'>수정</button>&nbsp;&nbsp;&nbsp;
@@ -86,12 +98,7 @@ button{background:white; border:0; height:2rem;}
 		</form>
 		</div>	 
 
-</div>
 </body>
 
-<script type="text/javascript">
-function formSubmit(){
-		frm.action="/Commfy/RegiRoadToEdit.do";
-		//요것 바꾸기  MBTIRoadToEdit
-</script>
+
 </html>

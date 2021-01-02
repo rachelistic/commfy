@@ -98,7 +98,7 @@ color:white;
 </style>
 <head>
 <meta charset="UTF-8">
-<title>menu</title>
+<title>CommfyPlannet</title>
 </head>
 <body>
 
@@ -113,7 +113,7 @@ color:white;
 				
 					
 					<li><a href="/Commfy/BoardList.do">게시판</a></li>
-					<li><a href="/Commfy/Logout.do">이벤트</a></li>
+				<!-- 	<li><a href="/Commfy/EventList.do">이벤트</a></li> -->
 				<c:if test="${usertype eq 'manager'}">	
 					<li><a href="/Commfy/RegiList.do">회원정보관리</a></li>
 					<li><a href="/Commfy/MBTIList.do">MBIT관리</a></li>

@@ -40,14 +40,13 @@ tr:hover {background:white; color:black;}
 					<th width="200">타 운</th>
 					<th width="100">코 드</th>
 					<th width="100">위 치</th>
-				<!-- 	<th width="100">특 징</th> -->
+			
 					<th width="100">베스트매치</th>
 					<th width="100">굿매치</th>
 					<th width="100">오케이매치</th>
 					<th width="100">배드매치</th>
 					<th width="150">워스트매치</th>
-					<th width="100">직업리스트</th>
-
+			
 				</tr>
 				
 				<c:forEach var="vo" items="${mbtis }">
@@ -56,12 +55,13 @@ tr:hover {background:white; color:black;}
 						<td align="center">${vo.town }</td>
 						<td align="center">${vo.mbtiCode }</td>
 						<td align="center">${vo.isla }</td>
-				<%-- 		<td align="center">${vo.description }</td> --%>
+			
 						<td align="center">${vo.bestMatch100 }</td>
+						<td align="center">${vo.goodMatch75 }</td>
 						<td align="center">${vo.okayMatch50 }</td>
 						<td align="center">${vo.badMatch25 }</td>
 						<td align="center">${vo.worstMatch0 }</td>
-						<td align="center">${vo.jobList }</td>
+					
 					</tr>
 					
 					

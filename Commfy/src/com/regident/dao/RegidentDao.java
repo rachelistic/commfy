@@ -24,8 +24,8 @@ public class RegidentDao {
 	private final String REGIDENTS = "SELECT * FROM REGIDENT";
 	private final String REGIDENT = "SELECT * FROM REGIDENT WHERE ACCOUNT = ?";
 	private final String INSERT = "INSERT INTO REGIDENT( "
-			+ "ACCOUNT,NICKNAME,USERTYPE,PASSWORD,AREA,GENDER,BLOODTYPE,BIRTHDATE,REGIDATE,MBTICODE)"
-			+ "VALUES(?,?,?,?,?,?,?,?,?,?)";
+			+ "ACCOUNT,NICKNAME,USERTYPE,PASSWORD,AREA,GENDER,BLOODTYPE,BIRTHDATE,REGIDATE,MBTICODE,INTERESTS)"
+			+ "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 	private final String UPDATE = "UPDATE REGIDENT SET USERTYPE = ?, INTERESTS=?, ROOMS=?, MBTICODE=?, OCCUPATION=? WHERE ACCOUNT =?";
 	private final String DELETE = "DELETE FROM REGIDENT WHERE ACCOUNT = ?";
 	private final String MEMBERLOGIN = "SELECT * FROM REGIDENT WHERE ACCOUNT=? AND PASSWORD =?";
@@ -144,6 +144,7 @@ public class RegidentDao {
 			psmt.setDate(8, vo.getBirthDate());
 			psmt.setDate(9, vo.getRegiDate());
 			psmt.setString(10, vo.getMBTIcode());
+			psmt.setString(11, vo.getInterests());
 			
 			n = psmt.executeUpdate();
 			System.out.println("가입완료");

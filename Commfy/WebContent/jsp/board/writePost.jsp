@@ -135,7 +135,12 @@ function add(){
 			</tr>
 <tr>
 				<th width="100">글쓴이</th>
-				<td align="center"><input type="Text" id="pwriter" name='pwriter' value="${uaccount}"></td>
+				<td align="center"><input type="Text" style="background:none;width:80%;" readonly id="pwriter" name='pwriter' value="${uaccount}"></td>
+			</tr>
+			
+<tr>
+				<th width="100">마을</th>
+				<td align="center">${isla }, ${town }마을(<input type="Text" style="background:none;width:50px" readonly id="pmbti" name='pmbti' value="${mbticode}">)</td>
 			</tr>
 			<tr>
 				<th width="100">글 제목</th>

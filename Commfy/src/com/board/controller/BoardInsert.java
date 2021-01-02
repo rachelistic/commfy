@@ -40,6 +40,7 @@ public class BoardInsert extends HttpServlet {
 		
 
 		vo.setPostWriter(request.getParameter("pwriter"));
+		vo.setMbti(request.getParameter("pmbti"));
 		vo.setPostCategory(request.getParameter("pcategory"));
 		vo.setPostTitle(request.getParameter("ptitle"));
 		vo.setPostContent(request.getParameter("pcontent"));

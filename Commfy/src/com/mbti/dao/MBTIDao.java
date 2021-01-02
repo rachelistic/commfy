@@ -30,7 +30,7 @@ public class MBTIDao {
 	 * "ACCOUNT,NICKNAME,USERTYPE,PASSWORD,AREA,GENDER,BLOODTYPE,BIRTHDATE,REGIDATE,MBTICODE)"
 	 * + "VALUES(?,?,?,?,?,?,?,?,?,?)";
 	 */
-//	private final String UPDATE = "UPDATE REGIDENT SET USERTYPE = ?, INTERESTS=?, ROOMS=?, MBTICODE=?, OCCUPATION=? WHERE MBTICODE =?";
+	private final String UPDATE = "UPDATE MBTITOWN SET DESCRIPTION = ?, BESTMATCH100=?, GOODMATCH75=?, OKAYMATCH50=?, BADMATCH25=?, WORSTMATCH0=?, JOBLIST=? WHERE MBTICODE =?";
 //	/* private final String DELETE = "DELETE FROM REGIDENT WHERE ACCOUNT = ?"; */
 //	
 	
@@ -150,26 +150,28 @@ public class MBTIDao {
 		return vo2;
 	}
 	
-//	public int update(RegidentVo vo) {   //게시글 수정
-//		int n = 0;
-//		try {
-//			psmt = conn.prepareStatement(UPDATE);
-//			psmt.setString(1, vo.getUserType());
-//			psmt.setString(2, vo.getInterests());
-//			psmt.setString(3, vo.getRooms());
-//			psmt.setString(4, vo.getMBTIcode());
-//			psmt.setString(5, vo.getOccupation());
-//			psmt.setString(6, vo.getAccount());
-//			n = psmt.executeUpdate();
-//			
-//		}catch(SQLException e) {
-//			e.printStackTrace();
-//		}finally {
-//			close();
-//		}
-//		return n;
-//	}	
-//	
+	public int update(MBTIVo vo) {   //게시글 수정
+		int n = 0;
+		try {
+			psmt = conn.prepareStatement(UPDATE);
+			psmt.setString(1, vo.getDescription());
+			psmt.setString(2, vo.getBestMatch100());
+			psmt.setString(3, vo.getGoodMatch75());
+			psmt.setString(4, vo.getOkayMatch50());
+			psmt.setString(5, vo.getBadMatch25());
+			psmt.setString(6, vo.getWorstMatch0());
+			psmt.setString(7, vo.getJobList());
+			psmt.setString(8, vo.getMbtiCode());
+			n = psmt.executeUpdate();
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return n;
+	}	
+	
 	private void close() {
 		try {
 			if (rs != null)

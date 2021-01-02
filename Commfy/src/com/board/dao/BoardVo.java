@@ -25,6 +25,10 @@ public class BoardVo {
     private String Interest;
     private String interestSm;
     private int eventJoin;
+    
+    private String mbti;
+    
+    
 	public int getPostId() {
 		return postId;
 	}
@@ -138,6 +142,12 @@ public class BoardVo {
 	}
 	public void setEventJoin(int eventJoin) {
 		this.eventJoin = eventJoin;
+	}
+	public String getMbti() {
+		return mbti;
+	}
+	public void setMbti(String mbti) {
+		this.mbti = mbti;
 	}
 	
     

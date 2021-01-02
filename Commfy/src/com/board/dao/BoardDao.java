@@ -18,15 +18,15 @@ public class BoardDao {
 	private PreparedStatement psmt;
 	private ResultSet rs;
 	
-	private final String POSTS = "SELECT * FROM BOARD";
+	private final String POSTS = "SELECT * FROM BOARD ORDER BY POSTID DESC";
 	private final String POST = "SELECT * FROM BOARD WHERE POSTID = ?";
 	
 	private final String HIT_UPDATE = "UPDATE BOARD SET POSTHIT = POSTHIT + 1 WHERE POSTID = ?";
 	private final String INSERT ="INSERT INTO BOARD" 
 			+ "(POSTID,POSTCATEGORY,POSTTITLE,POSTCONTENT,POSTAREA,POSTRANGE,POSTDATE,"
 			+ "EVENTTITLE,EVENTDATE,EVENTTIME,EVENTPLACE,EVENTMIN,EVENTMAX,EVENTFEE,"
-			+ "INTEREST,INTERESTSM,EVENTJOIN,POSTWRITER)"
-			+ "VALUES(PO_SEQ.NEXTVAL,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			+ "INTEREST,INTERESTSM,EVENTJOIN,POSTWRITER,MBTI)"
+			+ "VALUES(PO_SEQ.NEXTVAL,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	
 	/*
 	 * private final String INSERT = "INSERT INTO MBTITOWN( " +
@@ -83,6 +83,8 @@ public class BoardDao {
 				vo.setInterest(rs.getString("interest"));
 				vo.setInterestSm(rs.getString("interestsm"));
 			    vo.setEventJoin(rs.getInt("eventjoin"));  
+			    
+			    vo.setMbti(rs.getString("mbti"));
 				
 				
 				System.out.println("연결확인용");
@@ -144,6 +146,8 @@ public class BoardDao {
 				vo.setInterestSm(rs.getString("interestsm"));
 				vo.setEventJoin(rs.getInt("eventjoin"));     
 				
+				vo.setMbti(rs.getString("mbti"));
+			
 				
 				System.out.println("연결확인용");
 				System.out.println(rs.getInt("posthit"));
@@ -208,6 +212,7 @@ public class BoardDao {
 			psmt.setString(15, vo.getInterestSm());
 			psmt.setInt(16, vo.getEventJoin()); 
 			psmt.setString(17, vo.getPostWriter());
+			psmt.setString(18, vo.getMbti());
 			
 			n = psmt.executeUpdate();
 			
@@ -236,6 +241,20 @@ public class BoardDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+
+
+
+	public ArrayList<BoardVo> sortSearch(String sortresult) {
+
+		ArrayList<BoardVo> list = new ArrayList<BoardVo>();
+		BoardVo vo;	
+		
+		
+		
+		return list;
+
+
 	}
 
 

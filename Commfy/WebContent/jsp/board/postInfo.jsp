@@ -99,7 +99,7 @@ a:active {
 	
 		</table>
 		<br>
-		<c:if test="${vo.eventTitle ne null}">
+		<c:if test="${vo.postCategory eq '컨택트모임' || vo.postCategory eq '언컨택트모임'}">
 			<a id="eventmsg">이 게시글은 이벤트를 포함하고 있습니다.</a>
 			<button id="eventon" onClick='showEvent()'>이벤트 상세보기</button> 
 			<button id="eventclose" onClick='closeEvent()' style="display:none">이벤트 상세 페이지 닫기</button> 

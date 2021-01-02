@@ -34,32 +34,32 @@ button{background:white; border:0; height:2rem;}
 			</tr>
 			<tr>	
 				<th width="100">특 징</th>
-				<td align="center" colspan=6>${vo.description }</td>
+				<td align="center" colspan=5>${vo.description }</td>
 			</tr>	
 			
 			<tr>
 				<th width="100">베스트매치</th>
-				<td align="center" colspan=6>${vo.bestMatch100 }</td>
+				<td align="center" colspan=5>${vo.bestMatch100 }</td>
 			</tr>
 			<tr>
 				<th width="100">굿매치</th>
-				<td align="center" colspan=6>${vo.goodMatch75 }</td>
+				<td align="center" colspan=5>${vo.goodMatch75 }</td>
 			</tr>
 			<tr>
 				<th width="100">오케이매치</th>
-				<td align="center" colspan=6>${vo.okayMatch50 }</td>
+				<td align="center" colspan=5>${vo.okayMatch50 }</td>
 			</tr>
 			<tr>
 				<th width="100">배드매치</th>
-				<td align="center" colspan=6>${vo.badMatch25 }</td>
+				<td align="center" colspan=5>${vo.badMatch25 }</td>
 			</tr>
 			<tr>
 				<th width="100">워스트매치</th>
-				<td align="center" colspan=6>${vo.worstMatch0 }</td>
+				<td align="center" colspan=5>${vo.worstMatch0 }</td>
 			</tr>
 			<tr>
 				<th width="100">직업 목록</th>
-				<td align="center" colspan=6>${vo.jobList }</td>
+				<td align="center" colspan=5>${vo.jobList }</td>
 			</tr>
 			<!-- 워스트매치 보기 -->
 		</table>
@@ -67,7 +67,7 @@ button{background:white; border:0; height:2rem;}
  
 <div align="center">
 		<form id="frm" name="frm" method="post" action="">
-		<input type="hidden" id="account" name="account" value="${vo.mbtiCode}">
+		<input type="hidden" id="mbticode" name="mbticode" value="${vo.mbtiCode}">
 		
 		<!-- 아까 히든 말들어준데어데? -->
 		<button type ="submit" onClick='formSubmit()'>수정</button>&nbsp;&nbsp;&nbsp;

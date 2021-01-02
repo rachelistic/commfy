@@ -178,7 +178,7 @@ body {
 						
 						<input class="button" type="submit" value="로 그 인">
 						<p class="message">
-							아직 등록된 사용자가 아닌가요? <a href="login/register.jsp">회원가입하기</a>
+							아직 등록된 사용자가 아닌가요? <a href="register.jsp">회원가입하기</a>
 						</p>
 					</form>
 				</div>

@@ -6,68 +6,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript">
-	function SearchFunction(str) {
-		document.frm.mid.value = str;
-		document.frm.action = "/Commfy/.do";
-		document.frm.submit();
-	}
-</script>
-<style>
-button {
-	background: white;
-	border: 0;
-	height: 2.5rem;
-}
-
-input {
-	background: white;
-	border: 0;
-	height: 2.5rem;
-}
-
-#navi {width:85%;}
-select {
-	background: white;
-	border: 0;
-	height: 2.5rem;
-}
-table {width:85%;
-		border:10px solid white;
-		}
-
-tr {height:3rem; background: white}
-
-tr:hover {
-	background: #EDD3BC;
-	color: black;
-}
-
-
-
-</style>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
-<body style="background-color: clouds; float: left; display: inline">
+<body>
+서치리스트 
 	<div class="container" align="center">
 
 		<div id="title">
 			<br>
 			<br>
 			<h1 style="color:white">전 체 게 시 판</h1>
-			<form id=frm name=frm action="sortSearch.do">
-			<input type="checkbox" name="sort" onClick="getCheckboxValue()" value="${bestm}">BEST매치 100%
-			<input type="checkbox" name="sort" onClick="getCheckboxValue()" value="${goodm}">GOOD매치 75%
-			<input type="checkbox" name="sort" onClick="getCheckboxValue()" value="${okaym}">OKAY매치 50%
-			<input type="checkbox" name="sort" onClick="getCheckboxValue()" value="${badm}">Bad매치 25%
-			<input type="checkbox" name="sort" onClick="getCheckboxValue()" value="${isla}">우리섬(비슷한성향)
-			<input type="checkbox" name="sort" onClick="getCheckboxValue()" value="${mbticode}">우리마을(같은mbti)
-			<input type="submit" value="검색">
-			<div id="result" style="display:none;"></div>
-			<input id="sortresult" name="sortresult" style="width:800px;">
-			</form>
 			
-			
-			<br>
+				<br>
 		</div>
 		<div id="navi" style="display: inline position:relative">
 
@@ -128,26 +79,6 @@ tr:hover {
 
 
 	</div>
-	
+
 </body>
-<script>
-function getCheckboxValue()  {
-	  // 선택된 목록 가져오기
-	  const query = 'input[name="sort"]:checked';
-	  const selectedEls = 
-	      document.querySelectorAll(query);
-	  
-	  // 선택된 목록에서 value 찾기
-	  let result = "";
-	  selectedEls.forEach((el) => {
-	    result += el.value + ',';
-	  });
-	  
-	  // 출력
-	  document.getElementById('result').innerText
-	    = result;
-	  document.getElementById('sortresult').value
-	    = result;
-	}
-</script>
 </html>

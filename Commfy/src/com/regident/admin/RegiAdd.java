@@ -49,6 +49,7 @@ public class RegiAdd extends HttpServlet {
 		vo.setRegiDate(Date.valueOf(request.getParameter("currentDate")));
 		
 		vo.setMBTIcode(request.getParameter("mbti"));
+		vo.setInterests(request.getParameter("int"));
 	
 		int n = dao.insert(vo);
 		String viewPage;
