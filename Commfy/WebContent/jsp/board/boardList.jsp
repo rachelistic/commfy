@@ -54,16 +54,17 @@ tr:hover {
 			<br>
 			<br>
 			<h1 style="color:white">전 체 게 시 판</h1>
-			<form id=frm name=frm action="sortSearch.do">
+			<form id=sort name=sort action="sortSearch.do">
 			<input type="checkbox" name="sort" onClick="getCheckboxValue()" value="${bestm}">BEST매치 100%
 			<input type="checkbox" name="sort" onClick="getCheckboxValue()" value="${goodm}">GOOD매치 75%
 			<input type="checkbox" name="sort" onClick="getCheckboxValue()" value="${okaym}">OKAY매치 50%
 			<input type="checkbox" name="sort" onClick="getCheckboxValue()" value="${badm}">Bad매치 25%
 			<input type="checkbox" name="sort" onClick="getCheckboxValue()" value="${isla}">우리섬(비슷한성향)
 			<input type="checkbox" name="sort" onClick="getCheckboxValue()" value="${mbticode}">우리마을(같은mbti)
-			<input type="submit" value="검색">
+			<br><br>
 			<div id="result" style="display:none;"></div>
 			<input id="sortresult" name="sortresult" style="width:800px;">
+			<input type="submit" value="search">
 			</form>
 			
 			
@@ -77,7 +78,7 @@ tr:hover {
 
 			</div>
 
-			<div style="float: right; padding-right: 2%; position: relative">
+			<div style="float: right; padding-right: 2%; position: relative" id="searchwriter">
 				<form id="searchform" name="searchform">
 					<select id="searchopt" name="searchopt">
 						<option value="" selected>==전체 검색==</option>
@@ -86,7 +87,7 @@ tr:hover {
 						<option value="gender">성별 검색</option>
 						<option value="mbticode">mbti 검색</option>
 					</select> <input type="text" id="searchbar"> <input type="button"
-						id="search" value="검색">
+						id="search" value="search">
 				</form>
 			</div>
 		</div>

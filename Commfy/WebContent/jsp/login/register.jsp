@@ -156,6 +156,7 @@
 	<form id="frm" name="frm" action="/Commfy/RegiAdd.do" method="get">
 		<div id="firstsec" align="center">
 			<br> <br>
+			<a href="/Commfy/jsp/login/register2.jsp">ENGLISH</a> / <a href="/Commfy/jsp/login/register.jsp">KOREAN</a>
 			<h3>컴피플래닛에 오신것을 환영합니다.</h3>
 			<br>
 			<h1>컴피플래닛 주민 등록</h1>
@@ -165,27 +166,24 @@
 					<tr>
 						<th>어카운트</th>
 						<td colspan="2"><input name="account" type="text"
-							></td>
+							required></td>
 						<td><input type="button" value="중복체크"></td>
 					</tr>
 
 					<tr>
 						<th>별명</th>
-						<td colspan="2"><input name="nickname" type="text"></td>
-					</tr>
-					<tr>
-						<th>권한</th>
-						<td colspan="2"><input name="usertype" type="text"
-							value="user" readonly></td>
+						<td colspan="2"><input name="nickname" type="text" required>
+					<input name="usertype" type="text"
+							value="user" readonly style="display:none"></td>
 					</tr>
 					<tr>
 						<th>비밀번호</th>
-						<td colspan="2"><input name="pw" type="password"></td>
+						<td colspan="2"><input name="pw" type="password" required></td>
 					</tr>
 					<tr>
 						<th>비밀번호 확인</th>
 						<td colspan="2"><input type="password"></td>
-						<td id="pwconfirm">재확인!</td>
+						<td id="pwconfirm"><input type="text" value="재입력" readonly style="background:none; border:none; width:60px;"></td>
 					</tr>
 					<tr>
 						<th>활동 지역</th>
@@ -238,13 +236,14 @@
 					</tr>
 					<tr>
 						<th>생년월일</th>
-						<td><input name="bdate" type="date"></td>
+						<td><input name="bdate" type="date">
+						<input type="date" id="currentDate" name="currentDate"
+							readonly style="display:none"></td>
 					</tr>
-					<tr>
-						<th>가입일(오늘)</th>
-						<td><input type="date" id="currentDate" name="currentDate"
-							readonly></td>
-					</tr>
+					
+						
+						
+					
 				</table>
 				<br> <br> <br>
 			</div>

@@ -28,12 +28,14 @@ nav>ul>li {
 	font-weight:bold;
 	display: inline;
 	width:100px;
+	
 }
 
 a:visited {text-decoration: none;} 
 
 nav>ul>li a {
 text-decoration: none; 
+
 }
 nav>ul>li a:visited {
 text-decoration: none;color:black;
@@ -42,10 +44,10 @@ nav>ul>li a:hover {
 text-decoration: none;
 }
 nav>ul>li>ul>li {
-width:110px;
+width:150px;
 background:grey;
-float:left;
-font-size:15px;
+float:right;
+font-size:20px;
 }
 
 nav ul {margin:10px;padding:0;}
@@ -54,7 +56,7 @@ nav ul {margin:10px;padding:0;}
 	position:relative;
 	color:white;
 	float: right;
-	right:20px;
+	right:0px;
 }
 
 nav ul li ul {opacity:0;
@@ -112,13 +114,15 @@ color:white;
 				</c:if>
 				
 					
-					<li><a href="/Commfy/BoardList.do">게시판</a></li>
+					
 				<!-- 	<li><a href="/Commfy/EventList.do">이벤트</a></li> -->
 				<c:if test="${usertype eq 'manager'}">	
+				
 					<li><a href="/Commfy/RegiList.do">회원정보관리</a></li>
 					<li><a href="/Commfy/MBTIList.do">MBIT관리</a></li>
 				</c:if>
 				<c:if test="${uaccount ne null}">
+				<li><a href="/Commfy/BoardList.do">게시판</a></li>
 					<li><a>매칭 보기</a></li>
 					<li><a href="/Commfy/jsp/mymenu/myPage.jsp">마이페이지</a></li>	
 					

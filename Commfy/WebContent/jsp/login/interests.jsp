@@ -125,11 +125,11 @@
 <div class="bo">
 
 <a id="b0" class="button a b0 close" ><br><br>INTERESTS</a>
-<a id="b1" class="button b b1 close"><input type="checkbox" name="interests" onclick='getCheckboxValue()'value="예술" style="border:0; background:none;font-size:20px;">예술</a>
-<a id="b2" class="button b b2 close"><input type="checkbox" name="interests" onclick='getCheckboxValue()'value="음악" style=" border:0; background:none;font-size:20px;">음악</a>
-<a id="b3" class="button b b3 close"><input type="checkbox" name="interests" onclick='getCheckboxValue()'value="운동" style=" border:0; background:none;font-size:20px;">운동</a>
-<a id="b4" class="button b b4 close"><input type="checkbox" name="interests" onclick='getCheckboxValue()' value="친목" style=" border:0; background:none;font-size:20px;">친목</a>
-<a id="b5" class="button b b5 close"><input type="checkbox" name="interests" onclick='getCheckboxValue()' value="어학" style=" border:0; background:none;font-size:20px;">어학</a>
+<a id="b1" class="button b b1 close"><input type="checkbox" name="interests" onclick='getCheckboxValue()'value="예술" style="border:0; background:none;font-size:20px;">Art</a>
+<a id="b2" class="button b b2 close"><input type="checkbox" name="interests" onclick='getCheckboxValue()'value="음악" style=" border:0; background:none;font-size:20px;">Music</a>
+<a id="b3" class="button b b3 close"><input type="checkbox" name="interests" onclick='getCheckboxValue()'value="운동" style=" border:0; background:none;font-size:20px;">WorkOut</a>
+<a id="b4" class="button b b4 close"><input type="checkbox" name="interests" onclick='getCheckboxValue()' value="친목" style=" border:0; background:none;font-size:20px;">Social</a>
+<a id="b5" class="button b b5 close"><input type="checkbox" name="interests" onclick='getCheckboxValue()' value="어학" style=" border:0; background:none;font-size:20px;">Learning</a>
 
 
 </div>
@@ -181,10 +181,11 @@ function getCheckboxValue()  {
 	  });
 	  
 	  // 출력
-	  document.getElementById('result').innerText
-	    = result;
+/* 	  document.getElementById('result').innerText
+	    = result; */
 	  document.getElementById('int').value
 	    = result;
+	  
 	}
 
 

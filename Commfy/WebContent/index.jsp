@@ -8,9 +8,9 @@
 <title>홈</title>
 </head>
 <body>
-
- 	<a href="/Commfy/jsp/login/login.jsp">log in</a>
-
+<div align="center">
+ 	<h1><a href="/Commfy/jsp/login/login.jsp">Go to the Test Page</a></h1>
+</div>
 </body>
 <!-- jstl 은 ,, ojdbc디비 연결용 -->
 </html>
