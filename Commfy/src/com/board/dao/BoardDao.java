@@ -20,6 +20,7 @@ public class BoardDao {
 	
 	private final String POSTS = "SELECT * FROM BOARD ORDER BY POSTID DESC";
 	private final String POST = "SELECT * FROM BOARD WHERE POSTID = ?";
+	private final String SEARCHMBTI = "SELECT * FROM BOARD WHERE MBTI=?";
 	
 	private final String HIT_UPDATE = "UPDATE BOARD SET POSTHIT = POSTHIT + 1 WHERE POSTID = ?";
 	private final String INSERT ="INSERT INTO BOARD" 
@@ -230,7 +231,7 @@ public class BoardDao {
 	
 	
 	
-	private void close() {
+	public void close() {
 		try {
 			if (rs != null)
 				rs.close();
@@ -240,24 +241,173 @@ public class BoardDao {
 				conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-	}
+		}}
 
 
-
-	public ArrayList<BoardVo> sortSearch(String sortresult) {
+	public ArrayList<BoardVo> sortSearch(String[] sortresultArray) {
 
 		ArrayList<BoardVo> list = new ArrayList<BoardVo>();
 		BoardVo vo;	
 		
-		
-		
+		for(int i =0; i <sortresultArray.length; i++){
+			
+			try {
+				psmt = conn.prepareStatement(SEARCHMBTI);
+				psmt.setString(1, sortresultArray[i]);
+				rs = psmt.executeQuery();
+				while (rs.next()) {
+				
+				vo = new BoardVo();
+				
+				vo.setPostId(rs.getInt("postid"));
+				vo.setPostTitle(rs.getString("posttitle"));
+				vo.setPostRange(rs.getString("postrange"));
+				
+				vo.setPostWriter(rs.getString("postwriter"));
+				vo.setPostDate(rs.getDate("postdate"));
+				vo.setPostArea(rs.getString("postarea"));
+				
+				
+				vo.setPostContent(rs.getString("postcontent"));
+				vo.setPostCategory(rs.getString("postcategory"));
+				vo.setPostHit(rs.getInt("posthit"));
+			
+				vo.setEventTitle(rs.getString("eventtitle"));
+				vo.setEventPlace(rs.getString("eventplace"));
+				vo.setEventDate(rs.getDate("eventdate"));
+				vo.setEventTime(rs.getString("eventtime"));
+				vo.setEventMin(rs.getInt("eventmin"));
+				vo.setEventMax(rs.getInt("eventmax"));
+				vo.setEventFee(rs.getInt("eventfee"));
+				
+				vo.setInterest(rs.getString("interest"));
+				vo.setInterestSm(rs.getString("interestsm"));
+			    vo.setEventJoin(rs.getInt("eventjoin"));  
+			    
+			    vo.setMbti(rs.getString("mbti"));
+				
+				
+				System.out.println("DB Seach for문 도는중");
+				System.out.println(rs.getString("posttitle"));
+				System.out.println(vo.getPostTitle());
+				list.add(vo);
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} 
+			
+		}
 		return list;
-
-
 	}
+}
+//				
+//			} catch (Exception e) {
+//				// TODO: handle exception
+//			}
+//			
+//			
+//			sortresultArray[i]
+//			copy2[i] = nums[i];
+//
+//			System.out.print(copy2[i]+"  ");
+//
+//		}
+//		
+//		 
+//		for(int i=0; i<arr.length; i++){
+//		 
+//		System.out.println(arr[i]);
+//		for()
+//		
+//		(opt==0) {
+//			
+//			try {
+//				psmt = conn.prepareStatement(SEARCHTITLE);
+//				psmt.setString(1, "%" + condition + "%" );
+//				rs = psmt.executeQuery();
+//				
+//				while (rs.next()) {
+//					vo = new BorderVo();
+//					vo.setBorderId(rs.getInt("borderid"));
+//					vo.setBorderWriter(rs.getString("borderwriter"));
+//					vo.setBorderTitle(rs.getString("bordertitle"));
+//					vo.setBorderContent(rs.getString("bordercontent"));
+//					vo.setBorderDate(rs.getDate("borderdate"));
+//					vo.setBorderHit(rs.getInt("borderhit"));
+//					list.add(vo);
+//				}
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//			} finally {
+//				close();
+//			}
+//			return list;
+//			
+//		}else if(opt==1){
+//			
+//			try {
+//				psmt = conn.prepareStatement(SEARCHWRITER);
+//				psmt.setString(1, "%" + condition + "%" );
+//				rs = psmt.executeQuery();
+//				
+//				while (rs.next()) {
+//					vo = new BorderVo();
+//					vo.setBorderId(rs.getInt("borderid"));
+//					vo.setBorderWriter(rs.getString("borderwriter"));
+//					vo.setBorderTitle(rs.getString("bordertitle"));
+//					vo.setBorderContent(rs.getString("bordercontent"));
+//					vo.setBorderDate(rs.getDate("borderdate"));
+//					vo.setBorderHit(rs.getInt("borderhit"));
+//					list.add(vo);
+//				}
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//			} finally {
+//				close();
+//			}
+//			return list;
+//		}else if(opt==2) {
+//			try {
+//				psmt = conn.prepareStatement(SEARCHCONTENT);
+//				psmt.setString(1, "%" + condition + "%" );
+//				rs = psmt.executeQuery();
+//				
+//				while (rs.next()) {
+//					vo = new BorderVo();
+//					vo.setBorderId(rs.getInt("borderid"));
+//					vo.setBorderWriter(rs.getString("borderwriter"));
+//					vo.setBorderTitle(rs.getString("bordertitle"));
+//					vo.setBorderContent(rs.getString("bordercontent"));
+//					vo.setBorderDate(rs.getDate("borderdate"));
+//					vo.setBorderHit(rs.getInt("borderhit"));
+//					list.add(vo);
+//				}
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//			} finally {
+//				close();
+//			}
+//			return list;
+//			
+//			
+//		}else {
+//			System.out.println("오류메세지");
+//			
+//		}
+//		
+//		return list;
+//
+//
+//	}
+//		
+//		
+//		return list;
+//
+//
+//	}
 
 
 
 	
-}
+

@@ -9,9 +9,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
-서치리스트 
-	<div class="container" align="center">
+<body><%-- 
+서치리스트 ${searchList }<br>쉼표로 구분해 리스트에 넣은것 ${sortresult }<br>어래이 쉼표로 구분한것 ${sortresultArray} 
+ --%>	<div class="container" align="center">
 
 		<div id="title">
 			<br>
@@ -57,7 +57,7 @@
 					<th width="50">조회수</th>
 					
 				</tr>
-				<c:forEach var="vo" items="${posts }">
+				<c:forEach var="vo" items="${searchList }">
 					<tr class="row"
 						onClick="location.href='/Commfy/BoardRead.do?postid=${vo.postId }'">
 						<td align="center">${vo.postId }</td>
